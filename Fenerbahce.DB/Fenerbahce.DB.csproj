@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{522E44FE-09E5-41CE-995D-036E2191147D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fenerbahce.DB</RootNamespace>
+    <AssemblyName>Fenerbahce.DB</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="dbup-core, Version=4.2.0.0, Culture=neutral, PublicKeyToken=4b419c53bdfd4cbf, processorArchitecture=MSIL">
+      <HintPath>..\packages\dbup-core.4.2.0\lib\net45\dbup-core.dll</HintPath>
+    </Reference>
+    <Reference Include="dbup-sqlserver, Version=4.2.0.0, Culture=neutral, PublicKeyToken=4b419c53bdfd4cbf, processorArchitecture=MSIL">
+      <HintPath>..\packages\dbup-sqlserver.4.2.0\lib\net35\dbup-sqlserver.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Setup\Database.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\V2.0_Index_RoleNameIndex.sql" />
+    <EmbeddedResource Include="Scripts\V2.1_Index_MailIndex.sql" />
+    <EmbeddedResource Include="Scripts\V2.2_Index_NameIndex.sql" />
+    <EmbeddedResource Include="Scripts\V2.3_Index_IX_UserId.sql" />
+    <EmbeddedResource Include="Scripts\V2.4_Index_IX_UserId.sql" />
+    <EmbeddedResource Include="Scripts\V2.5_Index_IX_RoleId.sql" />
+    <EmbeddedResource Include="Scripts\V2.6_Index_IX_UserId.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\V1.0_Table_Student.sql" />
+    <EmbeddedResource Include="Scripts\V1.10_Table_Payment.sql" />
+    <EmbeddedResource Include="Scripts\V1.11_Table_StudentParent.sql" />
+    <EmbeddedResource Include="Scripts\V1.4_Table_InstructorGroup.sql" />
+    <EmbeddedResource Include="Scripts\V1.1_Table_User.sql" />
+    <EmbeddedResource Include="Scripts\V1.2_Table_UserClaim.sql" />
+    <EmbeddedResource Include="Scripts\V1.3_Table_UserLogin.sql" />
+    <EmbeddedResource Include="Scripts\V1.5_Table_UserRole.sql" />
+    <EmbeddedResource Include="Scripts\V1.6_Table_Role.sql" />
+    <EmbeddedResource Include="Scripts\V1.7_Table_Sport.sql" />
+    <EmbeddedResource Include="Scripts\V1.8_Table_School.sql" />
+    <EmbeddedResource Include="Scripts\V1.9_Table_Group.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\V3.0_FK_dbo.UserClaim_dbo.User_UserId.sql" />
+    <EmbeddedResource Include="Scripts\V3.1_FK_dbo.UserLogin_dbo.User_UserId.sql" />
+    <EmbeddedResource Include="Scripts\V3.2_FK_dbo.UserRole_dbo.Role_RoleId.sql" />
+    <EmbeddedResource Include="Scripts\V3.3_FK_dbo.UserRole_dbo.User_UserId.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\V3.4_FK_InstructorGroup_Instructor.sql" />
+    <EmbeddedResource Include="Scripts\V3.5_FK_StudentParent_Parent.sql" />
+    <EmbeddedResource Include="Scripts\V3.6_FK_StudentParent_Student.sql" />
+    <EmbeddedResource Include="Scripts\V3.7_FK_InstructorGroup_Group.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\V3.10_FK_Student_Sport.sql" />
+    <EmbeddedResource Include="Scripts\V3.11_FK_Student_Group.sql" />
+    <EmbeddedResource Include="Scripts\V3.8_FK_Group_School.sql" />
+    <EmbeddedResource Include="Scripts\V3.9_FK_Group_Sport.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\V3.12_FK_Payment_Student.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\V0.0_Table_Test.sql" />
+    <EmbeddedResource Include="Scripts\V0.1_Data_Test_TD.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\V4.0_Data_Role.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\V5.0_Constraint_Payment_Type.sql" />
+    <EmbeddedResource Include="Scripts\V5.1_Constraint_InstructorGroup_Type.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
