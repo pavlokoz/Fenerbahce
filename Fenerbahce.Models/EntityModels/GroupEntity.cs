@@ -14,5 +14,6 @@ namespace Fenerbahce.Models.EntityModels
         public long SportId { get; set; }
 
         public IList<StudentEntity> Students { get; set; }
+        public IList<InstructorGroupEntity> InstructorGroups { get; set; }
     }
 }

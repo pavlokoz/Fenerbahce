@@ -7,6 +7,7 @@
 	[EmailConfirmed] [bit] NOT NULL,
 	[PasswordHash] [nvarchar](max) NULL,
 	[FullName] [nvarchar](256) NOT NULL,
+	[SecurityPin] [nvarchar](128) NOT NULL,
  CONSTRAINT [PK_dbo.User] PRIMARY KEY CLUSTERED 
 (
 	[UserId] ASC

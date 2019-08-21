@@ -57,11 +57,14 @@
     <Compile Include="EntityModels\GroupEntity.cs" />
     <Compile Include="EntityModels\InstructorGroupEntity.cs" />
     <Compile Include="EntityModels\PaymentEntity.cs" />
+    <Compile Include="EntityModels\RoleEntity.cs" />
     <Compile Include="EntityModels\SchoolEntity.cs" />
     <Compile Include="EntityModels\SportEntity.cs" />
     <Compile Include="EntityModels\StudentEntity.cs" />
     <Compile Include="EntityModels\StudentParentEntity.cs" />
     <Compile Include="EntityModels\TestEntity.cs" />
+    <Compile Include="EntityModels\UserEntity.cs" />
+    <Compile Include="EntityModels\UserRoleEntity.cs" />
     <Compile Include="IdentityModels\AccountBindingModels.cs" />
     <Compile Include="IdentityModels\AccountViewModel.cs" />
     <Compile Include="IdentityModels\IdentityModels.cs" />

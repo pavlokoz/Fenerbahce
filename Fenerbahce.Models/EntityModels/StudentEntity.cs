@@ -18,5 +18,6 @@ namespace Fenerbahce.Models.EntityModels
         public long GroupId { get; set; }
 
         public IList<PaymentEntity> Payments { get; set; }
+        public IList<StudentParentEntity> StudentParents { get; set; }
     }
 }

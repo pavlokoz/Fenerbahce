@@ -21,6 +21,9 @@ namespace Fenerbahce.UnitOfWork.UnitOfWork
         private IRepository<PaymentEntity> paymentRepository;
         private IRepository<InstructorGroupEntity> instructorGroupRepository;
         private IRepository<StudentParentEntity> studentParentRepository;
+        private IRepository<UserEntity> userRepository;
+        private IRepository<RoleEntity> roleRepository;
+        private IRepository<UserRoleEntity> userRoleRepository;
 
         public IRepository<TestEntity> TestRepository => testRepository ??
           (testRepository = new Repository<TestEntity>(Context));
@@ -45,6 +48,15 @@ namespace Fenerbahce.UnitOfWork.UnitOfWork
 
         public IRepository<StudentParentEntity> StudentParentRepository => studentParentRepository ??
            (studentParentRepository = new Repository<StudentParentEntity>(Context));
+
+        public IRepository<UserEntity> UserRepository => userRepository ?? 
+            (userRepository = new Repository<UserEntity>(Context));
+
+        public IRepository<RoleEntity> RoleRepository => roleRepository ??
+            (roleRepository = new Repository<RoleEntity>(Context));
+
+        public IRepository<UserRoleEntity> UserRoleRepository => userRoleRepository ??
+            (userRoleRepository = new Repository<UserRoleEntity>(Context));
 
         public void Save()
         {

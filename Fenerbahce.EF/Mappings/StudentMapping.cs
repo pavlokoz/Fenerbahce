@@ -11,7 +11,7 @@ namespace Fenerbahce.EF.Mappings
             ToTable("dbo.Student");
             HasKey(x => x.StudentId);
 
-            Property(x => x.StudentId).HasColumnName("GroupId").IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property(x => x.StudentId).HasColumnName("StudentId").IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(x => x.FirstName).HasColumnName("FirstName").IsRequired().HasMaxLength(50);
             Property(x => x.LastName).HasColumnName("LastName").IsRequired().HasMaxLength(50);
             Property(x => x.DateOfBirth).HasColumnName("DateOfBirth").IsRequired();

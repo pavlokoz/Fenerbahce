@@ -14,10 +14,8 @@ namespace Fenerbahce.EF.Mappings
             Property(x => x.ParentId).HasColumnName("ParentId").IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
             Property(x => x.StudentId).HasColumnName("StudentId").IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
 
-            //Do not forget add foreign key!!
-
-            //HasRequired(x => x.User).WithMany(y => y.StudentParent).HasForeignKey(z => z.UserId);
-            //HasRequired(x => x.Student).WithMany(y => y.StudentParent).HasForeignKey(z => z.StudentId);
+            HasRequired(x => x.Parent).WithMany(y => y.StudentParents).HasForeignKey(z => z.ParentId);
+            HasRequired(x => x.Student).WithMany(y => y.StudentParents).HasForeignKey(z => z.StudentId);
         }
     }
 }

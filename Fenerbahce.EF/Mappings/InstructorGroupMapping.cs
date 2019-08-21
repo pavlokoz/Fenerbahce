@@ -16,10 +16,8 @@ namespace Fenerbahce.EF.Mappings
             Property(x => x.Type).HasColumnName("Type").IsRequired().HasMaxLength(50);
             Property(x => x.Salary).HasColumnName("Salary").IsRequired();
 
-            //Do not forget add foreign key!!
-
-            //HasRequired(x => x.User).WithMany(y => y.InstructorGroup).HasForeignKey(z => z.UserId);
-            //HasRequired(x => x.Group).WithMany(y => y.InstructorGroup).HasForeignKey(z => z.GroupId);
+            HasRequired(x => x.Instructor).WithMany(y => y.InstructorGroups).HasForeignKey(z => z.InstructorId);
+            HasRequired(x => x.Group).WithMany(y => y.InstructorGroups).HasForeignKey(z => z.GroupId);
         }
     }
 }

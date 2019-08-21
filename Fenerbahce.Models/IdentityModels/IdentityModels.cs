@@ -23,6 +23,7 @@ namespace Fenerbahce.Models.IdentityModels
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime? DateOfBirth { get; set; }
+        public string SecurityPin { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser, int> manager, string authenticationType)
         {
@@ -76,6 +77,7 @@ namespace Fenerbahce.Models.IdentityModels
             modelBuilder.Entity<ApplicationUser>().ToTable("User").Ignore(p => p.TwoFactorEnabled);
             modelBuilder.Entity<ApplicationUser>().ToTable("User").Ignore(p => p.SecurityStamp);
             modelBuilder.Entity<ApplicationUser>().ToTable("User").Ignore(p => p.AccessFailedCount);
+            modelBuilder.Entity<ApplicationUser>().ToTable("User").Property(p => p.SecurityPin).HasColumnName("SecurityPin");
             modelBuilder.Entity<ApplicationUser>().ToTable("User").Property(p => p.Email).
                 HasColumnName("Email").IsRequired().HasColumnAnnotation("Index",
                 new IndexAnnotation(new[]
