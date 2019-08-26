@@ -16,6 +16,15 @@ namespace Fenerbahce.EF.Mappings
             Property(x => x.LastName).HasColumnName("LastName").IsRequired();
             Property(x => x.Email).HasColumnName("Email").IsRequired().HasMaxLength(256);
             Property(x => x.DateOfBirth).HasColumnName("DateOfBirth").IsOptional();
+
+            HasMany(x => x.Groups)
+                .WithMany(y => y.Instructors)
+                .Map(z =>
+                {
+                    z.MapLeftKey("InstructorId");
+                    z.MapRightKey("GroupId");
+                    z.ToTable("dbo.InstructorGroup");
+                });
         }
     }
 }

@@ -17,10 +17,14 @@ namespace Fenerbahce.Unity
 
             //Services
             container.RegisterType<ITestService, TestService>();
-
+            container.RegisterType<IGroupService, GroupService>();
 
             //Mappers
             container.RegisterType<IMapper<TestEntity, TestDTO>, TestMapper>();
+            container.RegisterType<IMapper<StudentEntity, StudentDTO>, StudentMapper>();
+            container.RegisterType<IMapper<GroupEntity, GroupDetailDTO>, GroupDetailMapper>();
+            container.RegisterType<IMapper<GroupEntity, GroupDTO>, GroupMapper>();
+            container.RegisterType<IMapper<UserEntity, InstructorDTO>, InstructorMapper>();
         }
     }
 }

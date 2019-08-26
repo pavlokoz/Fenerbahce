@@ -23,6 +23,15 @@ namespace Fenerbahce.EF.Mappings
             HasRequired<SportEntity>(g => g.Sport)
                 .WithMany(s => s.Groups)
                 .HasForeignKey<long>(g => g.SportId);
+
+            HasMany(x => x.Instructors)
+                .WithMany(y => y.Groups)
+                .Map(z =>
+                {
+                    z.MapLeftKey("GroupId");
+                    z.MapRightKey("InstructorId");
+                    z.ToTable("dbo.InstructorGroup");
+                });
         }
     }
 }

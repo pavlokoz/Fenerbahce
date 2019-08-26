@@ -13,7 +13,7 @@ namespace Fenerbahce.EF.Mappings
 
             Property(x => x.SchoolId).HasColumnName("SchoolId").IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(x => x.SchoolName).HasColumnName("SchoolName").IsRequired().HasMaxLength(50);
-            Property(x => x.Logo).HasColumnName("LastName").IsRequired();
+            Property(x => x.Logo).HasColumnName("Logo").IsRequired();
         }
     }
 }
