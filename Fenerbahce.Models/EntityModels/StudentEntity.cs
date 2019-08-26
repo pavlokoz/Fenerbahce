@@ -19,5 +19,6 @@ namespace Fenerbahce.Models.EntityModels
 
         public IList<PaymentEntity> Payments { get; set; }
         public IList<StudentParentEntity> StudentParents { get; set; }
+        public IList<UserEntity> Parents { get; set; }
     }
 }
