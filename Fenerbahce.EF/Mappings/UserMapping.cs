@@ -4,7 +4,7 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace Fenerbahce.EF.Mappings
 {
-    public class UserMapping: EntityTypeConfiguration<UserEntity>
+    public class UserMapping : EntityTypeConfiguration<UserEntity>
     {
         public UserMapping()
         {
@@ -20,11 +20,20 @@ namespace Fenerbahce.EF.Mappings
             HasMany(x => x.Groups)
                 .WithMany(y => y.Instructors)
                 .Map(z =>
-                {
-                    z.MapLeftKey("InstructorId");
-                    z.MapRightKey("GroupId");
-                    z.ToTable("dbo.InstructorGroup");
-                });
+                    {
+                        z.MapLeftKey("InstructorId");
+                        z.MapRightKey("GroupId");
+                        z.ToTable("dbo.InstructorGroup");
+                    });
+
+            HasMany(e => e.Students)
+                .WithMany(e => e.Parents)
+                .Map(m =>
+                    {
+                        m.MapLeftKey("ParentId");
+                        m.MapRightKey("StudentId");
+                        m.ToTable("dbo.StudentParent");
+                    });
         }
     }
 }
