@@ -20,6 +20,7 @@ namespace Fenerbahce.Unity
             container.RegisterType<IGroupService, GroupService>();
             container.RegisterType<IStudentService, StudentService>();
             container.RegisterType<ISchoolService, SchoolService>();
+            container.RegisterType<ISearchService, SearchService>();
 
             //Mappers
             container.RegisterType<IMapper<TestEntity, TestDTO>, TestMapper>();
@@ -27,6 +28,7 @@ namespace Fenerbahce.Unity
             container.RegisterType<IMapper<GroupEntity, GroupDetailDTO>, GroupDetailMapper>();
             container.RegisterType<IMapper<GroupEntity, GroupDTO>, GroupMapper>();
             container.RegisterType<IMapper<UserEntity, InstructorDTO>, InstructorMapper>();
+            container.RegisterType<IMapper<UserEntity, SearchUserDTO>, SearchUserMapper>();
         }
     }
 }

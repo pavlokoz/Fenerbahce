@@ -11,8 +11,17 @@ namespace Fenerbahce.EF.Mappings
             ToTable("dbo.Role");
             HasKey(x => x.RoleId);
 
-            Property(x => x.RoleId).HasColumnName("RoleId").IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(x => x.RoleName).HasColumnName("RoleName").IsRequired().HasMaxLength(256);
+            Property(x => x.RoleId).HasColumnName("Id").IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property(x => x.RoleName).HasColumnName("Name").IsRequired().HasMaxLength(256);
+
+            HasMany(x => x.Users)
+                .WithMany(y => y.Roles)
+                .Map(z =>
+                {
+                    z.MapLeftKey("RoleId");
+                    z.MapRightKey("UserId");
+                    z.ToTable("dbo.UserRole");
+                });
         }
     }
 }

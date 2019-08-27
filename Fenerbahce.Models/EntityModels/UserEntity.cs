@@ -12,6 +12,7 @@ namespace Fenerbahce.Models.EntityModels
         public DateTime? DateOfBirth { get; set; }
 
         public IList<UserRoleEntity> UserRoles { get; set; }
+        public IList<RoleEntity> Roles { get; set; }
         public IList<InstructorGroupEntity> InstructorGroups { get; set; }
         public IList<GroupEntity> Groups { get; set; }
         public IList<StudentParentEntity> StudentParents { get; set; }
