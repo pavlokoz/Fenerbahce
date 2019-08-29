@@ -51,6 +51,10 @@ namespace Fenerbahce.Models.IdentityModels
         [Required]
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [DataType(DataType.Password)]
+        public string SecurityPin { get; set; }
     }
 
     public class RegisterOfUserBindingModel : RegisterBindingModel

@@ -56,8 +56,9 @@ namespace Fenerbahce.Models.IdentityModels
     int, UserLogin, UserRole, UserClaim>
     {
         public ApplicationDbContext()
-            : base("FenerbahceDBConnectionString")
+            : base(Environment.MachineName + "DBConnectionString")
         {
+
         }
 
         public static ApplicationDbContext Create()

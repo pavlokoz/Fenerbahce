@@ -107,5 +107,8 @@
     <EmbeddedResource Include="Scripts\V5.0_Constraint_Payment_Type.sql" />
     <EmbeddedResource Include="Scripts\V5.1_Constraint_InstructorGroup_Type.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\V5.2_Data_Sport.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

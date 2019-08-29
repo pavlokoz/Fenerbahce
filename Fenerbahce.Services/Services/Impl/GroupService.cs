@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Fenerbahce.Services.Services.Impl
 {
-    public class GroupService: IGroupService
+    public class GroupService : IGroupService
     {
         private readonly IUnitOfWorkFactory unitOfWorkFactory;
 
@@ -66,9 +66,10 @@ namespace Fenerbahce.Services.Services.Impl
                             from userRepo in instructorLeft.DefaultIfEmpty()
 
                             join studentRepo in uow.StudentRepository.Get()
-                            on groupRepo.GroupId equals studentRepo.GroupId 
+                            on groupRepo.GroupId equals studentRepo.GroupId into studentLeft
+                            from studentRepo in studentLeft.DefaultIfEmpty()
                             where groupRepo.GroupId == id
-                            select new { groupRepo, instructorGroupRepo, sportRepo, schoolRepo, userRepo, studentRepo};
+                            select new { groupRepo, instructorGroupRepo, sportRepo, schoolRepo, userRepo, studentRepo };
                 var group = query.ToList().
                     Select(x => x.groupRepo).Distinct().SingleOrDefault();
 

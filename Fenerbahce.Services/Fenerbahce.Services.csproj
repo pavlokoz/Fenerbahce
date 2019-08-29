@@ -43,8 +43,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IGroupService.cs" />
     <Compile Include="Services\Impl\GroupService.cs" />
+    <Compile Include="Services\Impl\SportService.cs" />
     <Compile Include="Services\Impl\TestService.cs" />
     <Compile Include="Services\IService.cs" />
+    <Compile Include="Services\ISportService.cs" />
     <Compile Include="Services\ITestService.cs" />
   </ItemGroup>
   <ItemGroup>
