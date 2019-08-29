@@ -43,12 +43,6 @@ namespace Fenerbahce.EF.Mappings
                     z.MapRightKey("RoleId");
                     z.ToTable("dbo.UserRole");
                 });
-                    {
-                        z.MapLeftKey("InstructorId");
-                        z.MapRightKey("GroupId");
-                        z.ToTable("dbo.InstructorGroup");
-                    });
-
         }
     }
 }

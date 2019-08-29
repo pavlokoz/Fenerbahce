@@ -1,6 +1,5 @@
 ﻿using Fenerbahce.Models.EntityModels;
 using Fenerbahce.UnitOfWork.UnitOfWork;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -46,8 +45,18 @@ namespace Fenerbahce.Services.Services.Impl
         {
             using (var uow = unitOfWorkFactory.CreateUnitOfWork())
             {
-                var school = uow.SchoolRepository.GetByID(id);
-                return school;
+                var query = from schoolRepo in uow.SchoolRepository.Get()
+                            join groupRepo in uow.GroupRepository.Get()
+                            on schoolRepo.SchoolId equals groupRepo.SchoolId into groupLeft
+                            from groupRepo in groupLeft.DefaultIfEmpty()
+                            join sportRepo in uow.SportRepository.Get()
+                            on groupRepo.SportId equals sportRepo.SportId into sportLeft
+                            from sportRepo in sportLeft.DefaultIfEmpty()
+                            where schoolRepo.SchoolId == id
+                            select new { schoolRepo, groupRepo, sportRepo };
+                            ;
+                var result = query.ToList().Select(x => x.schoolRepo).Distinct().SingleOrDefault();
+                return result;
             }
         }
     }

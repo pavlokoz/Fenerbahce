@@ -56,6 +56,8 @@
     <Compile Include="DTOModels\GroupDetailDTO.cs" />
     <Compile Include="DTOModels\GroupDTO.cs" />
     <Compile Include="DTOModels\InstructorDTO.cs" />
+    <Compile Include="DTOModels\SchoolDetailDTO.cs" />
+    <Compile Include="DTOModels\SchoolDTO.cs" />
     <Compile Include="DTOModels\SportDTO.cs" />
     <Compile Include="DTOModels\SearchUserDTO.cs" />
     <Compile Include="DTOModels\StudentDTO.cs" />
@@ -79,10 +81,12 @@
     <Compile Include="Mappers\Impl\GroupDetailMapper.cs" />
     <Compile Include="Mappers\Impl\GroupMapper.cs" />
     <Compile Include="Mappers\Impl\InstructorMapper.cs" />
+    <Compile Include="Mappers\Impl\SchoolMapper.cs" />
     <Compile Include="Mappers\Impl\SportMapper.cs" />
     <Compile Include="Mappers\Impl\SearchUserMapper.cs" />
     <Compile Include="Mappers\Impl\StudentMapper.cs" />
     <Compile Include="Mappers\Impl\TestMapper.cs" />
+    <Compile Include="Mappers\Impl\SchoolDetailMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
