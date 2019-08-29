@@ -19,21 +19,17 @@ namespace Fenerbahce.Services.Services.Impl
         {
             using (var uow = unitOfWorkFactory.CreateUnitOfWork())
             {
-                var query = from roleRepo in uow.RoleRepository.Get()                           
-                            join userRoleRepo in uow.UserRoleRepository.Get()
-                            on roleRepo.RoleId equals userRoleRepo.RoleId into roleLeft
-                            from userRoleRepo in roleLeft.DefaultIfEmpty()
-                            join userRepo in uow.UserRepository.Get()
-                            on userRoleRepo.UserId equals userRepo.UserId into userLeft
-                            from userRepo in userLeft.DefaultIfEmpty()
-                            where roleRepo.RoleId == roleId
-                            select new { userRepo };
+                var test = from userRepo in uow.UserRepository.Get()
+                           join userRoleRepo in uow.UserRoleRepository.Get()
+                           on userRepo.UserId equals userRoleRepo.UserId
+                           where userRoleRepo.RoleId == roleId && 
+                            (userRepo.FirstName + userRepo.LastName).ToLower().Contains(searchCriteria.ToLower())
+                           select userRepo;
 
-                var users = query.ToList().Select(x=>x.userRepo).ToList();
+                var users = test.ToList();
 
-                var result = users
-                    .Where(x => ((x.FirstName + x.LastName).ToLower()).Contains(searchCriteria.ToLower()))
-                    .ToList();
+                var result = users;
+
                 var startWithDictionary = new List<UserEntity>();
                 var containsDictionary = new List<UserEntity>();
                 foreach (var item in result)
