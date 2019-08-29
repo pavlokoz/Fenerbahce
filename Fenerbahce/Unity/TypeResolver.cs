@@ -21,6 +21,9 @@ namespace Fenerbahce.Unity
             //Services
             container.RegisterType<ITestService, TestService>();
             container.RegisterType<IGroupService, GroupService>();
+            container.RegisterType<IStudentService, StudentService>();
+            container.RegisterType<ISchoolService, SchoolService>();
+            container.RegisterType<ISearchService, SearchService>();
             container.RegisterType<ISportService, SportService>();
 
             //Mappers
@@ -31,6 +34,7 @@ namespace Fenerbahce.Unity
             container.RegisterType<IMapper<UserEntity, InstructorDTO>, InstructorMapper>();
             container.RegisterType<IMapper<ApplicationUser, RegisterOfUserBindingModel>, ApplicationUserMapper>();
             container.RegisterType<IMapper<SportEntity, SportDTO>, SportMapper>();
+            container.RegisterType<IMapper<UserEntity, SearchUserDTO>, SearchUserMapper>();
 
             //Identity
             container.RegisterType<ApplicationUserManager, ApplicationUserManager>();

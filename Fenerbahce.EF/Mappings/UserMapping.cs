@@ -34,6 +34,21 @@ namespace Fenerbahce.EF.Mappings
                         m.MapRightKey("StudentId");
                         m.ToTable("dbo.StudentParent");
                     });
+
+            HasMany(x => x.Roles)
+                .WithMany(y => y.Users)
+                .Map(z =>
+                {
+                    z.MapLeftKey("UserId");
+                    z.MapRightKey("RoleId");
+                    z.ToTable("dbo.UserRole");
+                });
+                    {
+                        z.MapLeftKey("InstructorId");
+                        z.MapRightKey("GroupId");
+                        z.ToTable("dbo.InstructorGroup");
+                    });
+
         }
     }
 }

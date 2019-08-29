@@ -7,6 +7,7 @@ namespace Fenerbahce.Models.EntityModels
         public int RoleId { get; set; }
         public string RoleName { get; set; }
 
-        public ICollection<UserRoleEntity> UserRoles { get; set; }
+        public IList<UserRoleEntity> UserRoles { get; set; }
+        public IList<UserEntity> Users { get; set; }
     }
 }
