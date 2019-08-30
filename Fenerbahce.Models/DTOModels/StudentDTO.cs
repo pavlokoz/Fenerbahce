@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Fenerbahce.Models.DTOModels
 {
@@ -8,6 +9,9 @@ namespace Fenerbahce.Models.DTOModels
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime? DateOfBirth { get; set; }
-        public string Patrimonial { get; set; }
+        public string Patrimonial { get; set; } 
+        public long GroupId { get; set; }
+        public string GroupName { get; set; }
+        public IList<ParentDTO> Parents { get; set; }
     }
 }

@@ -37,6 +37,7 @@ namespace Fenerbahce.Unity
             container.RegisterType<IMapper<UserEntity, SearchUserDTO>, SearchUserMapper>();
             container.RegisterType<IMapper<SchoolEntity, SchoolDTO>, SchoolMapper>();        
             container.RegisterType<IMapper<SchoolEntity, SchoolDetailDTO>, SchoolDetailMapper>();
+            container.RegisterType<IMapper<InstructorGroupEntity, GroupInstructorDTO>, GroupInstructorMapper>();
 
             //Identity
             container.RegisterType<ApplicationUserManager, ApplicationUserManager>();

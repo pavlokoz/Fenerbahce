@@ -17,7 +17,11 @@ namespace Fenerbahce.Services.Services.Impl
 
         public void Create(StudentEntity entity)
         {
-            throw new NotImplementedException();
+            using (var uow = unitOfWorkFactory.CreateUnitOfWork())
+            {
+                uow.StudentRepository.Insert(entity);
+                uow.Save();
+            }
         }
 
         public void CreateStudent(StudentEntity student, int parentId)
@@ -57,7 +61,24 @@ namespace Fenerbahce.Services.Services.Impl
         {
             using (var uow = unitOfWorkFactory.CreateUnitOfWork())
             {
-                var student = uow.StudentRepository.GetByID(id);
+                var query = from studentRepo in uow.StudentRepository.Get()
+                              join groupRepo in uow.GroupRepository.Get()
+                              on studentRepo.GroupId equals groupRepo.GroupId
+                              join studentParentRepo in uow.StudentParentRepository.Get()
+                              on studentRepo.StudentId equals studentParentRepo.StudentId into studentParentLeft
+                              from studentParentRepo in studentParentLeft.DefaultIfEmpty()
+                              join parentRepo in uow.UserRepository.Get()
+                              on studentParentRepo.ParentId equals parentRepo.UserId into parentLeft
+                              from parentRepo in parentLeft.DefaultIfEmpty()
+                              where studentRepo.StudentId == id
+                              select new { studentRepo, groupRepo, studentParentRepo, parentRepo };
+                var student = query.ToList().Select(x => x.studentRepo).Distinct().SingleOrDefault();
+                if (student == null)
+                {
+                    return null;
+                }
+
+                student.Parents = student.StudentParents?.Select(x => x.Parent).ToList();
                 return student;
             }
         }

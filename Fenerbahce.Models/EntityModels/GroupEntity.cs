@@ -4,6 +4,13 @@ namespace Fenerbahce.Models.EntityModels
 {
     public class GroupEntity
     {
+        public GroupEntity()
+        {
+            Students = new List<StudentEntity>();
+            InstructorGroups = new List<InstructorGroupEntity>();
+            Instructors = new List<UserEntity>();
+        }
+
         public long GroupId { get; set; }
         public string GroupName { get; set; }
 

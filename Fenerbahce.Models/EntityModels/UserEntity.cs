@@ -5,6 +5,16 @@ namespace Fenerbahce.Models.EntityModels
 {
     public class UserEntity
     {
+        public UserEntity()
+        {
+            UserRoles = new List<UserRoleEntity>();
+            Roles = new List<RoleEntity>();
+            InstructorGroups = new List<InstructorGroupEntity>();
+            Groups = new List<GroupEntity>();
+            StudentParents = new List<StudentParentEntity>();
+            Students = new List<StudentEntity>();
+        }
+
         public int UserId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
