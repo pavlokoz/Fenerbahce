@@ -1,11 +1,19 @@
 ﻿using Fenerbahce.Models.DTOModels;
 using Fenerbahce.Models.EntityModels;
 using System;
+using System.Linq;
 
 namespace Fenerbahce.Models.Mappers.Impl
 {
     public class StudentMapper : IMapper<StudentEntity, StudentDTO>
     {
+        private readonly IMapper<UserEntity, ParentDTO> parentMapper;
+
+        public StudentMapper(IMapper<UserEntity, ParentDTO> parentMapper)
+        {
+            this.parentMapper = parentMapper;
+        }
+
         public StudentEntity Map(StudentDTO source)
         {
             if (source == null)
@@ -20,7 +28,8 @@ namespace Fenerbahce.Models.Mappers.Impl
                 LastName = source.LastName,
                 DateOfBirth = source.DateOfBirth,
                 Patrimonial = source.Patrimonial,
-                GroupId = source.GroupId
+                GroupId = source.GroupId,
+                Parents = source.Parents.Select(parentMapper.Map).ToList()
             };
         }
 
@@ -39,7 +48,8 @@ namespace Fenerbahce.Models.Mappers.Impl
                 DateOfBirth = source.DateOfBirth,
                 Patrimonial = source.Patrimonial,
                 GroupId = source.GroupId,
-                GroupName = source.Group?.GroupName
+                GroupName = source.Group?.GroupName,
+                Parents = source.Parents.Select(parentMapper.Map).ToList()
             };
         }
     }

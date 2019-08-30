@@ -84,6 +84,7 @@
     <Compile Include="Mappers\Impl\GroupInstructorMapper.cs" />
     <Compile Include="Mappers\Impl\GroupMapper.cs" />
     <Compile Include="Mappers\Impl\InstructorMapper.cs" />
+    <Compile Include="Mappers\Impl\ParentMapper.cs" />
     <Compile Include="Mappers\Impl\SchoolMapper.cs" />
     <Compile Include="Mappers\Impl\SportMapper.cs" />
     <Compile Include="Mappers\Impl\SearchUserMapper.cs" />
