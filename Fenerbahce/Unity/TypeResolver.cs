@@ -1,5 +1,6 @@
 ﻿using Fenerbahce.Infrastructure.Config;
 using Fenerbahce.Models.DTOModels;
+using Fenerbahce.Models.DTOModels.MobileDTO;
 using Fenerbahce.Models.EntityModels;
 using Fenerbahce.Models.IdentityModels;
 using Fenerbahce.Models.Mappers;
@@ -26,6 +27,7 @@ namespace Fenerbahce.Unity
             container.RegisterType<ISearchService, SearchService>();
             container.RegisterType<ISportService, SportService>();
             container.RegisterType<IInstructorService, InstructorService>();
+            container.RegisterType<ICommentService, CommentService>();
 
             //Mappers
             container.RegisterType<IMapper<TestEntity, TestDTO>, TestMapper>();
@@ -40,6 +42,7 @@ namespace Fenerbahce.Unity
             container.RegisterType<IMapper<SchoolEntity, SchoolDetailDTO>, SchoolDetailMapper>();
             container.RegisterType<IMapper<InstructorGroupEntity, GroupInstructorDTO>, GroupInstructorMapper>();
             container.RegisterType<IMapper<UserEntity, ParentDTO>, ParentMapper>();
+            container.RegisterType<IMapper<CommentEntity, CommentDTO>, CommentMapper>();
 
             //Identity
             container.RegisterType<ApplicationUserManager, ApplicationUserManager>();

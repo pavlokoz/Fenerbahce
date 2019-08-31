@@ -110,5 +110,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Scripts\V5.2_Data_Sport.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\V6.0_Table_Comment.sql" />
+    <EmbeddedResource Include="Scripts\V6.1_FK_Comment_Group.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

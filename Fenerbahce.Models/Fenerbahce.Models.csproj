@@ -57,6 +57,7 @@
     <Compile Include="DTOModels\GroupDTO.cs" />
     <Compile Include="DTOModels\GroupInstructorDTO.cs" />
     <Compile Include="DTOModels\InstructorDTO.cs" />
+    <Compile Include="DTOModels\MobileDTO\GroupMobileDTO.cs" />
     <Compile Include="DTOModels\ParentDTO.cs" />
     <Compile Include="DTOModels\SchoolDetailDTO.cs" />
     <Compile Include="DTOModels\SchoolDTO.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="DTOModels\SearchUserDTO.cs" />
     <Compile Include="DTOModels\StudentDTO.cs" />
     <Compile Include="DTOModels\TestDTO.cs" />
+    <Compile Include="EntityModels\CommentEntity.cs" />
     <Compile Include="EntityModels\GroupEntity.cs" />
     <Compile Include="EntityModels\InstructorGroupEntity.cs" />
     <Compile Include="EntityModels\PaymentEntity.cs" />
@@ -83,6 +85,7 @@
     <Compile Include="Mappers\Impl\GroupDetailMapper.cs" />
     <Compile Include="Mappers\Impl\GroupInstructorMapper.cs" />
     <Compile Include="Mappers\Impl\GroupMapper.cs" />
+    <Compile Include="Mappers\Impl\GroupMobileMapper.cs" />
     <Compile Include="Mappers\Impl\InstructorMapper.cs" />
     <Compile Include="Mappers\Impl\ParentMapper.cs" />
     <Compile Include="Mappers\Impl\SchoolMapper.cs" />
