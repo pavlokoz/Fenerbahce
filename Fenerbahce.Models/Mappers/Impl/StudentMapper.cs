@@ -28,8 +28,7 @@ namespace Fenerbahce.Models.Mappers.Impl
                 LastName = source.LastName,
                 DateOfBirth = source.DateOfBirth,
                 Patrimonial = source.Patrimonial,
-                GroupId = source.GroupId,
-                Parents = source.Parents.Select(parentMapper.Map).ToList()
+                GroupId = source.GroupId
             };
         }
 

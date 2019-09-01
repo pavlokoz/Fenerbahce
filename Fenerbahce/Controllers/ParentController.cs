@@ -1,0 +1,28 @@
+﻿using Fenerbahce.Models.DTOModels;
+using Fenerbahce.Models.EntityModels;
+using Fenerbahce.Models.Mappers;
+using Fenerbahce.Services.Services;
+using System.Web.Http;
+
+namespace Fenerbahce.Controllers
+{
+    public class ParentController : ApiController
+    {
+        private readonly IParentService parentService;
+        private readonly IMapper<StudentParentEntity, StudentParentDTO> studentParentMapper;
+
+        public ParentController(IParentService parentService,
+            IMapper<StudentParentEntity, StudentParentDTO> studentParentMapper)
+        {
+            this.studentParentMapper = studentParentMapper;
+            this.parentService = parentService;
+        }
+
+        public IHttpActionResult AddParent(StudentParentDTO studentParent)
+        {
+            var studentParentEntity = studentParentMapper.Map(studentParent);
+            parentService.AddParent(studentParentEntity);
+            return Ok();
+        }
+    }
+}

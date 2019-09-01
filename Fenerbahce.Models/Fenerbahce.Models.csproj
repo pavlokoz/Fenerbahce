@@ -63,6 +63,7 @@
     <Compile Include="DTOModels\SportDTO.cs" />
     <Compile Include="DTOModels\SearchUserDTO.cs" />
     <Compile Include="DTOModels\StudentDTO.cs" />
+    <Compile Include="DTOModels\StudentParentDTO.cs" />
     <Compile Include="DTOModels\TestDTO.cs" />
     <Compile Include="EntityModels\GroupEntity.cs" />
     <Compile Include="EntityModels\InstructorGroupEntity.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="IdentityModels\IdentityModels.cs" />
     <Compile Include="Mappers\IMapper.cs" />
     <Compile Include="Mappers\Impl\ApplicationUserMapper.cs" />
+    <Compile Include="Mappers\Impl\StudentParentMapper.cs" />
     <Compile Include="Mappers\Impl\GroupDetailMapper.cs" />
     <Compile Include="Mappers\Impl\GroupInstructorMapper.cs" />
     <Compile Include="Mappers\Impl\GroupMapper.cs" />

@@ -45,11 +45,13 @@
     <Compile Include="Services\IInstructorService.cs" />
     <Compile Include="Services\Impl\GroupService.cs" />
     <Compile Include="Services\Impl\InstructorService.cs" />
+    <Compile Include="Services\Impl\ParentService.cs" />
     <Compile Include="Services\Impl\SchoolService.cs" />
     <Compile Include="Services\Impl\SearchService.cs" />
     <Compile Include="Services\Impl\StudentService.cs" />
     <Compile Include="Services\Impl\SportService.cs" />
     <Compile Include="Services\Impl\TestService.cs" />
+    <Compile Include="Services\IParentService.cs" />
     <Compile Include="Services\ISchoolService.cs" />
     <Compile Include="Services\ISearchService.cs" />
     <Compile Include="Services\IService.cs" />
