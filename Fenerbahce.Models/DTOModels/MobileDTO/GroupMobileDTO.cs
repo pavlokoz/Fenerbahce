@@ -12,5 +12,6 @@
         public long GroupId { get; set; }
         public string GroupName { get; set; }
         public long SportId { get; set; }
+        public int SchoolId { get; set; }
     }
 }

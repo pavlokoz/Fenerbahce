@@ -61,14 +61,15 @@ namespace Fenerbahce.Controllers
             {
                 GroupId = groupDTO.GroupId,
                 GroupName = groupDTO.GroupName,
-                SportId = groupDTO.SportId
+                SportId = groupDTO.SportId,
+                SchoolId = groupDTO.SchoolId
             };
             groupService.Create(group);
             return Ok();
         }
 
         [HttpGet]
-        public IHttpActionResult GetComments([FromBody] long groupId, [FromBody] DateTime date)
+        public IHttpActionResult GetComments([FromUri] long groupId, [FromUri] DateTime date)
         {
             var comments = commentService.GetByGroupId(groupId, date);
             var commentsDTO = comments.Select(commentMapper.Map).ToList();

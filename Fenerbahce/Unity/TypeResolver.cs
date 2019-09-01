@@ -43,6 +43,7 @@ namespace Fenerbahce.Unity
             container.RegisterType<IMapper<InstructorGroupEntity, GroupInstructorDTO>, GroupInstructorMapper>();
             container.RegisterType<IMapper<UserEntity, ParentDTO>, ParentMapper>();
             container.RegisterType<IMapper<CommentEntity, CommentDTO>, CommentMapper>();
+            container.RegisterType<IMapper<GroupEntity,GroupMobileDTO>, GroupMobileMapper>();
 
             //Identity
             container.RegisterType<ApplicationUserManager, ApplicationUserManager>();
