@@ -25,6 +25,10 @@ namespace Fenerbahce.UnitOfWork.UnitOfWork
         private IRepository<RoleEntity> roleRepository;
         private IRepository<UserRoleEntity> userRoleRepository;
         private IRepository<CommentEntity> commentRepository;
+        private IRepository<VisitorLogEntity> visitorLogRepository;
+
+        public IRepository<VisitorLogEntity> VisitorLogRepository => visitorLogRepository ??
+          (visitorLogRepository = new Repository<VisitorLogEntity>(Context));
 
         public IRepository<TestEntity> TestRepository => testRepository ??
           (testRepository = new Repository<TestEntity>(Context));

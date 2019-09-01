@@ -87,7 +87,7 @@ namespace Fenerbahce.Services.Services.Impl
         {
             using (var uow = unitOfWorkFactory.CreateUnitOfWork())
             {
-                var groups = uow.GroupRepository.Get().Where(x => x.SportId == sportId).ToList();               
+                var groups = uow.GroupRepository.Get().Where(x => x.SportId == sportId).ToList();
                 return groups;
             }
         }

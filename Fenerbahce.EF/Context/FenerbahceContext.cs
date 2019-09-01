@@ -24,6 +24,7 @@ namespace Fenerbahce.EF.Context
         public DbSet<RoleEntity> Roles { get; set; }
         public DbSet<UserRoleEntity> UserRoles { get; set; }
         public DbSet<CommentEntity> Comments { get; set; }
+        public DbSet<VisitorLogEntity> VisitorLogs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -39,6 +40,7 @@ namespace Fenerbahce.EF.Context
             modelBuilder?.Configurations.Add(new RoleMapping());
             modelBuilder?.Configurations.Add(new UserRoleMapping());
             modelBuilder?.Configurations.Add(new CommentMapping());
+            modelBuilder?.Configurations.Add(new VisitorLogMapping());
             base.OnModelCreating(modelBuilder);
         }
     }

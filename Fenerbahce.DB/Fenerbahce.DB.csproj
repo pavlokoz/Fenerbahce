@@ -114,5 +114,9 @@
     <EmbeddedResource Include="Scripts\V6.0_Table_Comment.sql" />
     <EmbeddedResource Include="Scripts\V6.1_FK_Comment_Group.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\V6.2_Table_VisitorLog.sql" />
+    <EmbeddedResource Include="Scripts\V6.3_FK_VisitorLog_Student.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -52,12 +52,14 @@
     <Compile Include="Services\Impl\StudentService.cs" />
     <Compile Include="Services\Impl\SportService.cs" />
     <Compile Include="Services\Impl\TestService.cs" />
+    <Compile Include="Services\Impl\VisitorLogService.cs" />
     <Compile Include="Services\ISchoolService.cs" />
     <Compile Include="Services\ISearchService.cs" />
     <Compile Include="Services\IService.cs" />
     <Compile Include="Services\ISportService.cs" />
     <Compile Include="Services\IStudentService.cs" />
     <Compile Include="Services\ITestService.cs" />
+    <Compile Include="Services\IVisitorLogService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fenerbahce.Infrastructure\Fenerbahce.Infrastructure.csproj">

@@ -10,6 +10,7 @@ namespace Fenerbahce.Models.EntityModels
             Payments = new List<PaymentEntity>();
             StudentParents = new List<StudentParentEntity>();
             Parents = new List<UserEntity>();
+            VisitorLogs = new List<VisitorLogEntity>();
         }
 
         public long StudentId { get; set; }
@@ -24,5 +25,6 @@ namespace Fenerbahce.Models.EntityModels
         public IList<PaymentEntity> Payments { get; set; }
         public IList<StudentParentEntity> StudentParents { get; set; }
         public IList<UserEntity> Parents { get; set; }
+        public IList<VisitorLogEntity> VisitorLogs { get; set; }
     }
 }

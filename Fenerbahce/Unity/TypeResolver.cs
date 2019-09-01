@@ -28,6 +28,7 @@ namespace Fenerbahce.Unity
             container.RegisterType<ISportService, SportService>();
             container.RegisterType<IInstructorService, InstructorService>();
             container.RegisterType<ICommentService, CommentService>();
+            container.RegisterType<IVisitorLogService, VisitorLogService>();
 
             //Mappers
             container.RegisterType<IMapper<TestEntity, TestDTO>, TestMapper>();

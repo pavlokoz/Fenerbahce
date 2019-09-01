@@ -78,6 +78,7 @@
     <Compile Include="EntityModels\TestEntity.cs" />
     <Compile Include="EntityModels\UserEntity.cs" />
     <Compile Include="EntityModels\UserRoleEntity.cs" />
+    <Compile Include="EntityModels\VisitorLogEntity.cs" />
     <Compile Include="IdentityModels\AccountBindingModels.cs" />
     <Compile Include="IdentityModels\AccountViewModel.cs" />
     <Compile Include="IdentityModels\IdentityModels.cs" />

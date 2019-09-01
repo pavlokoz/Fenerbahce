@@ -60,6 +60,7 @@
     <Compile Include="Mappings\TestMapping.cs" />
     <Compile Include="Mappings\UserMapping.cs" />
     <Compile Include="Mappings\UserRoleMapping.cs" />
+    <Compile Include="Mappings\VisitorLogMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

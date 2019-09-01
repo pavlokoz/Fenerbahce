@@ -19,5 +19,6 @@ namespace Fenerbahce.UnitOfWork.UnitOfWork
         IRepository<RoleEntity> RoleRepository { get; }
         IRepository<UserRoleEntity> UserRoleRepository { get; }
         IRepository<CommentEntity> CommentRepository { get; }
+        IRepository<VisitorLogEntity> VisitorLogRepository { get; }
     }
 }
