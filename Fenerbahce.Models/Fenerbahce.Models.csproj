@@ -59,6 +59,7 @@
     <Compile Include="DTOModels\InstructorDTO.cs" />
     <Compile Include="DTOModels\MobileDTO\CommentDTO.cs" />
     <Compile Include="DTOModels\MobileDTO\GroupMobileDTO.cs" />
+    <Compile Include="DTOModels\MobileDTO\SportContainer.cs" />
     <Compile Include="DTOModels\ParentDTO.cs" />
     <Compile Include="DTOModels\SchoolDetailDTO.cs" />
     <Compile Include="DTOModels\SchoolDTO.cs" />

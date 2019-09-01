@@ -39,9 +39,7 @@ namespace Fenerbahce.Controllers
         {
             var sports = sportService.GetAll();
             var sportDto = sports.Select(sportMapper.Map).ToList();
-            Dictionary<string, List<SportDTO>> keyValuePairs = new Dictionary<string, List<SportDTO>>();
-            keyValuePairs.Add("category_sport:", sportDto);
-            return Ok(keyValuePairs);
+            return Ok(sportDto);
         }
 
         [HttpGet]
@@ -49,9 +47,7 @@ namespace Fenerbahce.Controllers
         {
             var groups = groupService.GetBySportId(sportId);
             var groupDTO = groups.Select(groupMapper.Map).ToList();
-            Dictionary<string, List<GroupMobileDTO>> keyValuePairs = new Dictionary<string, List<GroupMobileDTO>>();
-            keyValuePairs.Add("category_group:", groupDTO);
-            return Ok(keyValuePairs);
+            return Ok(groupDTO);
         }
 
         [HttpPost]
@@ -73,9 +69,7 @@ namespace Fenerbahce.Controllers
         {
             var comments = commentService.GetByGroupId(groupId, date);
             var commentsDTO = comments.Select(commentMapper.Map).ToList();
-            Dictionary<string, List<CommentDTO>> keyValuePairs = new Dictionary<string, List<CommentDTO>>();
-            keyValuePairs.Add("comment_data:", commentsDTO);
-            return Ok(keyValuePairs);
+            return Ok(commentsDTO);
         }
 
         [HttpPost]
