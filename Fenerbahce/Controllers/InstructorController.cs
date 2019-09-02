@@ -11,6 +11,7 @@ using System.Web.Http;
 
 namespace Fenerbahce.Controllers
 {
+    [Authorize]
     public class InstructorController : ApiController
     {
         private readonly ISearchService searchService;
@@ -37,6 +38,7 @@ namespace Fenerbahce.Controllers
             return Ok(instructorsDTO);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IHttpActionResult AddInstructor([FromBody] GroupInstructorDTO groupInstructor)
         {

@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[School](
-	[SchoolId] [int] NOT NULL,
+	[SchoolId] [int] IDENTITY(1,1) NOT NULL,
 	[SchoolName] [nvarchar](50) NOT NULL,
 	[Logo] [varbinary](max) NULL,
  CONSTRAINT [PK_School] PRIMARY KEY CLUSTERED 

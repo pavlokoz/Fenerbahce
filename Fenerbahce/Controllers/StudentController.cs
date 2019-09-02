@@ -11,6 +11,7 @@ using System.Web.Http;
 
 namespace Fenerbahce.Controllers
 {
+    [Authorize]
     public class StudentController : ApiController
     {
         private readonly IStudentService studentService;
@@ -23,6 +24,7 @@ namespace Fenerbahce.Controllers
             this.studentMapper = studentMapper;
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IHttpActionResult CreateStudent([FromBody] StudentDTO student, [FromUri] long groupId)
         {

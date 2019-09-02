@@ -7,6 +7,7 @@ using System.Web.Http;
 
 namespace Fenerbahce.Controllers
 {
+    [Authorize]
     public class SchoolController : ApiController
     {
         private readonly ISchoolService schoolService;
@@ -37,6 +38,7 @@ namespace Fenerbahce.Controllers
             return Ok(schoolDetailDTO);
         }
 
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult CreateSchool([FromBody]SchoolDTO schoolDTO)
         {
             var school = schoolMapper.Map(schoolDTO);

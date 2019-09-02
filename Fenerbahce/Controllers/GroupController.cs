@@ -8,7 +8,7 @@ using System.Web.Http;
 
 namespace Fenerbahce.Controllers
 {
-    [AllowAnonymous]
+    [Authorize]
     public class GroupController : ApiController
     {
         private readonly IGroupService groupService;
@@ -16,11 +16,6 @@ namespace Fenerbahce.Controllers
         private readonly IMapper<GroupEntity, GroupDTO> groupMapper;
         private readonly IMapper<UserEntity, SearchUserDTO> searchMapper;
         private readonly ISearchService searchService;
-
-        public GroupController()
-        {
-
-        }
 
         public GroupController(IGroupService groupService,
             IMapper<GroupEntity, GroupDetailDTO> groupDetailMapper,
@@ -59,6 +54,7 @@ namespace Fenerbahce.Controllers
             return Ok(groupsDTO);
         }
 
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult CreateGroup([FromBody]GroupDTO groupDTO)
         {
             var group = groupMapper.Map(groupDTO);

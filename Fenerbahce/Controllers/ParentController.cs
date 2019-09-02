@@ -6,6 +6,7 @@ using System.Web.Http;
 
 namespace Fenerbahce.Controllers
 {
+    [Authorize]
     public class ParentController : ApiController
     {
         private readonly IParentService parentService;
@@ -18,6 +19,7 @@ namespace Fenerbahce.Controllers
             this.parentService = parentService;
         }
 
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult AddParent(StudentParentDTO studentParent)
         {
             var studentParentEntity = studentParentMapper.Map(studentParent);
