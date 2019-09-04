@@ -9,12 +9,11 @@ namespace Fenerbahce.EF.Mappings
         public VisitorLogMapping()
         {
             ToTable("dbo.VisitorLog");
-            HasKey(X => X.VisitorLogId);
+            HasKey(x => new { x.StudentId, x.VisitorLogDate });
 
-            Property(x => x.VisitorLogId).HasColumnName("VisitorLogId").IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(x => x.VisitorLogDate).HasColumnName("VisitorLogDate").IsRequired();
-            Property(x => x.StudentId).HasColumnName("StudentId").IsRequired();
-
+            Property(x => x.StudentId).HasColumnName("StudentId").IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            Property(x => x.VisitorLogDate).HasColumnName("VisitorLogDate").IsRequired().HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            Ignore(x => x.IsExist);
             HasRequired<StudentEntity>(g => g.Student)
                 .WithMany(s => s.VisitorLogs)
                 .HasForeignKey<long>(g => g.StudentId);

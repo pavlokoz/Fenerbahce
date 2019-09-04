@@ -6,6 +6,8 @@ namespace Fenerbahce.Services.Services
 {
     public interface IVisitorLogService: IService<VisitorLogEntity>
     {
-        //IList<VisitorLogEntity> GetVisitorLog(long groupId, DateTime date);
+        IList<StudentEntity> GetVisitorLog(long groupId, DateTime date);
+        void Update(VisitorLogEntity entity);
+        void UpdateState(VisitorLogEntity visitorLogEntity);
     }
 }

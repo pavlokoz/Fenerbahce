@@ -15,23 +15,32 @@ namespace Fenerbahce.Controllers
         private readonly ISportService sportService;
         private readonly IGroupService groupService;
         private readonly ICommentService commentService;
+        private readonly IVisitorLogService visitorLogService;
         private readonly IMapper<SportEntity, SportDTO> sportMapper;
         private readonly IMapper<GroupEntity, GroupMobileDTO> groupMapper;
         private readonly IMapper<CommentEntity, CommentDTO> commentMapper;
+        private readonly IMapper<StudentEntity, VisitorLogDTO> studentVisitMapper;
+        private readonly IMapper<VisitorLogEntity, VisitorLogDTO> visitMapper;
 
         public MobileController(ISportService sportService,
             IMapper<SportEntity, SportDTO> sportMapper,
             IGroupService groupService,
             IMapper<GroupEntity, GroupMobileDTO> groupMapper,
             ICommentService commentService,
-            IMapper<CommentEntity, CommentDTO> commentMapper)
+            IVisitorLogService visitorLogService,
+            IMapper<CommentEntity, CommentDTO> commentMapper,             
+            IMapper<StudentEntity, VisitorLogDTO> studentVisitMapper,
+            IMapper<VisitorLogEntity, VisitorLogDTO> visitMapper)
         {
             this.sportService = sportService;
             this.sportMapper = sportMapper;
             this.groupService = groupService;
             this.groupMapper = groupMapper;
             this.commentService = commentService;
+            this.visitorLogService = visitorLogService;
             this.commentMapper = commentMapper;
+            this.visitMapper = visitMapper;
+            this.studentVisitMapper = studentVisitMapper;
         }
 
         [HttpGet]
@@ -75,15 +84,31 @@ namespace Fenerbahce.Controllers
         [HttpPost]
         public IHttpActionResult CreateComment([FromBody] CommentDTO commentDTO, [FromUri] long groupId)
         {
-            var comment = new CommentEntity()
-            {
-                CommentId = commentDTO.CommentId,
-                CommentDate = commentDTO.CommentDate,
-                CommentText = commentDTO.CommentText,
-                GroupId = groupId
-            };
+            var comment = commentMapper.Map(commentDTO);
+            comment.GroupId = groupId;
             commentService.Create(comment);
             return Ok();
+        }
+
+        [HttpGet]
+        public IHttpActionResult GetVisitLogs([FromUri] long groupId, [FromUri] DateTime date)
+        {
+            var students = visitorLogService.GetVisitorLog(groupId, date);
+            var visitLogs = students.Select(x => {
+                var visitLog = studentVisitMapper.Map(x);
+                visitLog.LogDate = date;
+                return visitLog;
+            }
+            ).ToList();
+            return Ok(visitLogs);
+        }
+
+        [HttpPost]
+        public IHttpActionResult CreateVisitLogs([FromBody] VisitorLogContainer visitDto)
+        {
+            var visitLogs = visitDto.Payload.Select(visitMapper.Map).ToList();
+            visitLogs.ForEach(x => visitorLogService.UpdateState(x));
+            return Ok("MaksHyi");
         }
     }
 }

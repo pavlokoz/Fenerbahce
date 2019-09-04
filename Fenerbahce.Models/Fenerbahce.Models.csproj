@@ -60,6 +60,8 @@
     <Compile Include="DTOModels\MobileDTO\CommentDTO.cs" />
     <Compile Include="DTOModels\MobileDTO\GroupMobileDTO.cs" />
     <Compile Include="DTOModels\MobileDTO\SportContainer.cs" />
+    <Compile Include="DTOModels\MobileDTO\VisitorLogContainer.cs" />
+    <Compile Include="DTOModels\MobileDTO\VisitorLogDTO.cs" />
     <Compile Include="DTOModels\ParentDTO.cs" />
     <Compile Include="DTOModels\SchoolDetailDTO.cs" />
     <Compile Include="DTOModels\SchoolDTO.cs" />
@@ -98,6 +100,8 @@
     <Compile Include="Mappers\Impl\StudentMapper.cs" />
     <Compile Include="Mappers\Impl\TestMapper.cs" />
     <Compile Include="Mappers\Impl\SchoolDetailMapper.cs" />
+    <Compile Include="Mappers\Impl\StudentVisitorLogMapper.cs" />
+    <Compile Include="Mappers\Impl\VisitLogMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
