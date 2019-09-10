@@ -88,7 +88,6 @@
     <EmbeddedResource Include="Scripts\V3.7_FK_InstructorGroup_Group.sql" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Scripts\V3.10_FK_Student_Sport.sql" />
     <EmbeddedResource Include="Scripts\V3.11_FK_Student_Group.sql" />
     <EmbeddedResource Include="Scripts\V3.8_FK_Group_School.sql" />
     <EmbeddedResource Include="Scripts\V3.9_FK_Group_Sport.sql" />
