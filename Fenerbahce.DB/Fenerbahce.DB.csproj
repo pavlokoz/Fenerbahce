@@ -50,7 +50,14 @@
     <Compile Include="Setup\Database.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Scripts\V5.3_FK_Group_Sport.sql" />
+    <EmbeddedResource Include="Scripts\V5.3_FK_InstructorGroup_Group.sql" />
+    <EmbeddedResource Include="Scripts\V5.3_FK_StudentParent_Parent.sql" />
+    <EmbeddedResource Include="Scripts\V5.3_FK_StudentParent_Student.sql" />
+    <EmbeddedResource Include="Scripts\V5.3_FK_Student_Group.sql" />
     <None Include="packages.config" />
+    <EmbeddedResource Include="Scripts\V5.3_FK_InstructorGroup_Instructor.sql" />
+    <EmbeddedResource Include="Scripts\V5.3_FK_Payment_Student.sql" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Scripts\V2.0_Index_RoleNameIndex.sql" />
@@ -108,6 +115,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Scripts\V5.2_Data_Sport.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\V5.3_FK_Group_School.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

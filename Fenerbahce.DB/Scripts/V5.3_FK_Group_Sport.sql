@@ -1,0 +1,11 @@
+﻿IF (OBJECT_ID('dbo.FK_Group_Sport', 'F') IS NOT NULL)
+BEGIN
+    ALTER TABLE [dbo].[Group] DROP CONSTRAINT FK_Group_Sport
+END
+GO
+
+ALTER TABLE [dbo].[Group]  WITH CHECK ADD  CONSTRAINT [FK_Group_Sport] FOREIGN KEY([SportId])
+REFERENCES [dbo].[Sport] ([SportId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[Group] CHECK CONSTRAINT [FK_Group_Sport]
