@@ -30,6 +30,7 @@ namespace Fenerbahce.Controllers
             this.schoolDetailMapper = schoolDetailMapper;
         }
 
+        [HttpGet]
         public IHttpActionResult GetAll()
         {
             var schools = schoolService.GetAll();
@@ -37,6 +38,7 @@ namespace Fenerbahce.Controllers
             return Ok(schoolsDTO);
         }
 
+        [HttpGet]
         public IHttpActionResult GetSchoolById([FromUri]long schoolId)
         {
             var school = schoolService.GetById(schoolId);
@@ -46,6 +48,7 @@ namespace Fenerbahce.Controllers
         }
 
         [Authorize(Roles = "Admin")]
+        [HttpPost]
         public IHttpActionResult CreateSchool([FromUri]string schoolName)
         {
             var files = HttpContext.Current.Request.Files;
@@ -76,7 +79,43 @@ namespace Fenerbahce.Controllers
             }
         }
 
+
         [Authorize(Roles = "Admin")]
+        [HttpPut]
+        public IHttpActionResult UpdateSchool([FromUri]int schoolId, [FromUri]string schoolName)
+        {
+            var files = HttpContext.Current.Request.Files;
+            if (files.Count > 0)
+            {
+
+                var file = HttpContext.Current.Request.Files[0];
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    file.InputStream.CopyTo(ms);
+                    var school = new SchoolEntity
+                    {
+                        SchoolId = schoolId,
+                        SchoolName = schoolName,
+                        Logo = ms.ToArray()
+                    };
+                    schoolService.Update(school);
+                    return Ok();
+                }
+            }
+            else
+            {
+                var school = new SchoolEntity
+                {
+                    SchoolId = schoolId,
+                    SchoolName = schoolName
+                };
+                schoolService.Update(school);
+                return Ok();
+            }
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpDelete]
         public IHttpActionResult DeleteSchool([FromUri]long schoolId)
         {
             schoolService.Delete(schoolId);

@@ -82,7 +82,15 @@ namespace Fenerbahce.Services.Services.Impl
 
         public void Update(SchoolEntity entity)
         {
-            throw new System.NotImplementedException();
+            using (var uow = unitOfWorkFactory.CreateUnitOfWork())
+            {
+                if (entity.Logo == null)
+                {
+                    entity.Logo = this.GetLogoById(entity.SchoolId);
+                }
+                uow.SchoolRepository.Update(entity);
+                uow.Save();
+            }
         }
     }
 }
