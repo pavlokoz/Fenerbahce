@@ -91,5 +91,14 @@ namespace Fenerbahce.Services.Services.Impl
                 return group;
             }
         }
+
+        public void Update(GroupEntity entity)
+        {
+            using (var uow = unitOfWorkFactory.CreateUnitOfWork())
+            {
+                uow.GroupRepository.Update(entity);
+                uow.Save();
+            }
+        }
     }
 }

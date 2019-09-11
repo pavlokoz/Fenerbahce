@@ -48,14 +48,28 @@ namespace Fenerbahce.Controllers
         [Authorize(Roles = "Admin")]
         public IHttpActionResult CreateSchool([FromUri]string schoolName)
         {
-            var file = HttpContext.Current.Request.Files[0];
-            using (MemoryStream ms = new MemoryStream())
+            var files = HttpContext.Current.Request.Files;
+            if (files.Count > 0)
             {
-                file.InputStream.CopyTo(ms);
+
+                var file = HttpContext.Current.Request.Files[0];
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    file.InputStream.CopyTo(ms);
+                    var school = new SchoolEntity
+                    {
+                        SchoolName = schoolName,
+                        Logo = ms.ToArray()
+                    };
+                    schoolService.Create(school);
+                    return Ok();
+                }
+            } 
+            else
+            {
                 var school = new SchoolEntity
                 {
-                    SchoolName = schoolName,
-                    Logo = ms.ToArray()
+                    SchoolName = schoolName
                 };
                 schoolService.Create(school);
                 return Ok();
