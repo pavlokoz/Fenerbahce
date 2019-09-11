@@ -106,9 +106,9 @@ namespace Fenerbahce.Controllers
         [HttpPost]
         public IHttpActionResult CreateVisitLogs([FromBody] VisitorLogContainer visitDto)
         {
-            var visitLogs = visitDto.Payload.Select(visitMapper.Map).ToList();
-            visitLogs.ForEach(x => visitorLogService.UpdateState(x));
-            return Ok("MaksHyi");
+            var visitLogs = visitDto.Payload?.Select(visitMapper.Map).ToList();
+            visitLogs?.ForEach(x => visitorLogService.UpdateState(x));
+            return Ok(visitDto);
         }
     }
 }
