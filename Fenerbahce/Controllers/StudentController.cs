@@ -41,5 +41,12 @@ namespace Fenerbahce.Controllers
             var studentDTO = studentMapper.Map(studentEntity);
             return Ok(studentDTO);
         }
+
+        [Authorize(Roles = "Admin")]
+        public IHttpActionResult DeleteStudent([FromUri]long studentId)
+        {
+            studentService.Delete(studentId);
+            return Ok();
+        }
     }
 }

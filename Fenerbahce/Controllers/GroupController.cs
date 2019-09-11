@@ -61,5 +61,12 @@ namespace Fenerbahce.Controllers
             groupService.Create(group);
             return Ok();
         }
+
+        [Authorize(Roles = "Admin")]
+        public IHttpActionResult DeleteGroup([FromUri]long groupId)
+        {
+            groupService.Delete(groupId);
+            return Ok();
+        }
     }
 }
