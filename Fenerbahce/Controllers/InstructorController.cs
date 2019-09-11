@@ -46,5 +46,13 @@ namespace Fenerbahce.Controllers
             instructorService.AddInstructor(entity);
             return Ok();
         }
+
+        [Authorize(Roles = "Admin")]
+        [HttpDelete]
+        public IHttpActionResult DeleteInstructor([FromUri]long instructorId)
+        {
+            instructorService.Delete(instructorId);
+            return Ok();
+        }
     }
 }

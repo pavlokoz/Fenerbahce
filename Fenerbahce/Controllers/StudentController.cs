@@ -43,6 +43,7 @@ namespace Fenerbahce.Controllers
         }
 
         [Authorize(Roles = "Admin")]
+        [HttpDelete]
         public IHttpActionResult DeleteStudent([FromUri]long studentId)
         {
             studentService.Delete(studentId);
