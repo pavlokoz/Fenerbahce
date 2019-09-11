@@ -32,6 +32,15 @@ namespace Fenerbahce.Services.Services.Impl
             }
         }
 
+        public void Delete(object id)
+        {
+            using (var uow = unitOfWorkFactory.CreateUnitOfWork())
+            {
+                uow.SchoolRepository.Delete(id);
+                uow.Save();
+            }
+        }
+
         public IList<SchoolEntity> GetAll()
         {
             using (var uow = unitOfWorkFactory.CreateUnitOfWork())

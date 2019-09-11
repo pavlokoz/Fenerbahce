@@ -7,6 +7,7 @@ namespace Fenerbahce.Services.Services
         T GetById(long id);
         void Create(T entity);
         void Delete(T entity);
+        void Delete(object id);
         IList<T> GetAll();
     }
 }

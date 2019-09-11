@@ -62,6 +62,13 @@ namespace Fenerbahce.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
+        public IHttpActionResult DeleteSchool([FromUri]long schoolId)
+        {
+            schoolService.Delete(schoolId);
+            return Ok();
+        }
+
         [HttpGet]
         public HttpResponseMessage GetSchoolImage([FromUri]long schoolId)
         {
