@@ -115,5 +115,10 @@ namespace Fenerbahce.Services.Services.Impl
                 return startWithDictionary;
             }
         }
+
+        public void Update(StudentEntity entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

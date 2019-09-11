@@ -53,5 +53,10 @@ namespace Fenerbahce.Services.Services.Impl
                 return uow.SportRepository.GetByID(id);
             }
         }
+
+        public void Update(SportEntity entity)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

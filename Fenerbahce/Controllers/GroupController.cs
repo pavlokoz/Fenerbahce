@@ -38,7 +38,7 @@ namespace Fenerbahce.Controllers
             return Ok(searchDto);
         }
 
-
+        [HttpGet]
         public IHttpActionResult GetGroupById([FromUri]long groupId)
         {
             var group = groupService.GetById(groupId);
@@ -47,6 +47,7 @@ namespace Fenerbahce.Controllers
             return Ok(groupDetailDTO);
         }
 
+        [HttpGet]
         public IHttpActionResult GetAllGroups()
         {
             var groups = groupService.GetAll();
@@ -55,10 +56,20 @@ namespace Fenerbahce.Controllers
         }
 
         [Authorize(Roles = "Admin")]
+        [HttpPost]
         public IHttpActionResult CreateGroup([FromBody]GroupDTO groupDTO)
         {
             var group = groupMapper.Map(groupDTO);
             groupService.Create(group);
+            return Ok();
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPut]
+        public IHttpActionResult UpdateGroup([FromBody]GroupDTO groupDTO)
+        {
+            var group = groupMapper.Map(groupDTO);
+            groupService.Update(group);
             return Ok();
         }
     }

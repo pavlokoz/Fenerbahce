@@ -79,5 +79,10 @@ namespace Fenerbahce.Services.Services.Impl
                 return result;
             }
         }
+
+        public void Update(SchoolEntity entity)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
