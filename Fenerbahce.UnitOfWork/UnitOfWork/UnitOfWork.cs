@@ -24,6 +24,7 @@ namespace Fenerbahce.UnitOfWork.UnitOfWork
         private IRepository<UserEntity> userRepository;
         private IRepository<RoleEntity> roleRepository;
         private IRepository<UserRoleEntity> userRoleRepository;
+        private IRepository<NewsEntity> newsRepository;
 
         public IRepository<TestEntity> TestRepository => testRepository ??
           (testRepository = new Repository<TestEntity>(Context));
@@ -57,6 +58,9 @@ namespace Fenerbahce.UnitOfWork.UnitOfWork
 
         public IRepository<UserRoleEntity> UserRoleRepository => userRoleRepository ??
             (userRoleRepository = new Repository<UserRoleEntity>(Context));
+
+        public IRepository<NewsEntity> NewsRepository => newsRepository ??
+            (newsRepository = new Repository<NewsEntity>(Context));
 
         public void Save()
         {

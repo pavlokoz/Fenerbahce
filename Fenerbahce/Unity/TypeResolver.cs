@@ -28,6 +28,7 @@ namespace Fenerbahce.Unity
             container.RegisterType<IInstructorService, InstructorService>();
             container.RegisterType<IParentService, ParentService>();
             container.RegisterType<IPaymentService, PaymentService>();
+            container.RegisterType<INewsService, NewsService>();
 
             //Mappers
             container.RegisterType<IMapper<TestEntity, TestDTO>, TestMapper>();
@@ -44,7 +45,8 @@ namespace Fenerbahce.Unity
             container.RegisterType<IMapper<UserEntity, ParentDTO>, ParentMapper>();
             container.RegisterType<IMapper<StudentParentEntity, StudentParentDTO>, StudentParentMapper>();
             container.RegisterType<IMapper<PaymentEntity, PaymentDTO>, PaymentMapper>();
-        
+            container.RegisterType<IMapper<NewsEntity, NewsDTO>, NewsMapper>();
+
             //Identity
             container.RegisterType<ApplicationUserManager, ApplicationUserManager>();
             container.RegisterType<IUserStore<ApplicationUser, int>, UserStore>();

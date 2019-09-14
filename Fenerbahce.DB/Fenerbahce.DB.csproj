@@ -120,5 +120,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Scripts\V5.3_FK_Group_School.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\V5.4_Table_News.sql" />
+    <EmbeddedResource Include="Scripts\V5.5_FK_News_User.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
