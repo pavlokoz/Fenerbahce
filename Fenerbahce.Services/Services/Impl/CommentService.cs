@@ -39,6 +39,11 @@ namespace Fenerbahce.Services.Services.Impl
             }
         }
 
+        public void Delete(object id)
+        {
+            throw new NotImplementedException();
+        }
+
         public IList<CommentEntity> GetAll()
         {
             using (var uow = unitOfWorkFactory.CreateUnitOfWork())
@@ -64,6 +69,11 @@ namespace Fenerbahce.Services.Services.Impl
                 var comment = uow.CommentRepository.GetByID(id);
                 return comment;
             }
+        }
+
+        public void Update(CommentEntity entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

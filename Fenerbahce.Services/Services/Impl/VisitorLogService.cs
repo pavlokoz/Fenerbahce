@@ -102,5 +102,10 @@ namespace Fenerbahce.Services.Services.Impl
 
             }
         }
+
+        public void Delete(object id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
