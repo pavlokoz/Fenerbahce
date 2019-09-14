@@ -9,6 +9,7 @@ namespace Fenerbahce.Models.EntityModels
             Students = new List<StudentEntity>();
             InstructorGroups = new List<InstructorGroupEntity>();
             Instructors = new List<UserEntity>();
+            Comments = new List<CommentEntity>();
         }
 
         public long GroupId { get; set; }
@@ -23,5 +24,6 @@ namespace Fenerbahce.Models.EntityModels
         public IList<StudentEntity> Students { get; set; }
         public IList<InstructorGroupEntity> InstructorGroups { get; set; }
         public IList<UserEntity> Instructors { get; set; }
+        public IList<CommentEntity> Comments { get; set; }
     }
 }

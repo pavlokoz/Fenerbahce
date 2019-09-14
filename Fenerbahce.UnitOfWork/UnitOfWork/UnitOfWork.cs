@@ -24,7 +24,14 @@ namespace Fenerbahce.UnitOfWork.UnitOfWork
         private IRepository<UserEntity> userRepository;
         private IRepository<RoleEntity> roleRepository;
         private IRepository<UserRoleEntity> userRoleRepository;
+        private IRepository<CommentEntity> commentRepository;
+        private IRepository<VisitorLogEntity> visitorLogRepository;
+
+        public IRepository<VisitorLogEntity> VisitorLogRepository => visitorLogRepository ??
+          (visitorLogRepository = new Repository<VisitorLogEntity>(Context));
+
         private IRepository<NewsEntity> newsRepository;
+
 
         public IRepository<TestEntity> TestRepository => testRepository ??
           (testRepository = new Repository<TestEntity>(Context));
@@ -50,7 +57,7 @@ namespace Fenerbahce.UnitOfWork.UnitOfWork
         public IRepository<StudentParentEntity> StudentParentRepository => studentParentRepository ??
            (studentParentRepository = new Repository<StudentParentEntity>(Context));
 
-        public IRepository<UserEntity> UserRepository => userRepository ?? 
+        public IRepository<UserEntity> UserRepository => userRepository ??
             (userRepository = new Repository<UserEntity>(Context));
 
         public IRepository<RoleEntity> RoleRepository => roleRepository ??
@@ -59,6 +66,9 @@ namespace Fenerbahce.UnitOfWork.UnitOfWork
         public IRepository<UserRoleEntity> UserRoleRepository => userRoleRepository ??
             (userRoleRepository = new Repository<UserRoleEntity>(Context));
 
+        public IRepository<CommentEntity> CommentRepository => commentRepository ??
+            (commentRepository = new Repository<CommentEntity>(Context));
+            
         public IRepository<NewsEntity> NewsRepository => newsRepository ??
             (newsRepository = new Repository<NewsEntity>(Context));
 

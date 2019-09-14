@@ -75,5 +75,6 @@ namespace Fenerbahce.UnitOfWork.Repository
             dbSet.Attach(entityToUpdate);
             context.Entry(entityToUpdate).State = EntityState.Modified;
         }
+
     }
 }

@@ -118,6 +118,12 @@
     <EmbeddedResource Include="Scripts\V5.2_Data_Sport.sql" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Scripts\V6.0_Table_Comment.sql" />
+    <EmbeddedResource Include="Scripts\V6.1_FK_Comment_Group.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\V6.2_Table_VisitorLog.sql" />
+    <EmbeddedResource Include="Scripts\V6.3_FK_VisitorLog_Student.sql" />
     <EmbeddedResource Include="Scripts\V5.3_FK_Group_School.sql" />
   </ItemGroup>
   <ItemGroup>

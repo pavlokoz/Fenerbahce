@@ -84,7 +84,15 @@ namespace Fenerbahce.Services.Services.Impl
                 return group;
             }
         }
-
+        
+        public IList<GroupEntity> GetBySportId(long sportId)
+        {
+            using (var uow = unitOfWorkFactory.CreateUnitOfWork())
+            {
+                var groups = uow.GroupRepository.Get().Where(x => x.SportId == sportId).ToList();
+                return groups;
+            }
+        }
         public void Update(GroupEntity entity)
         {
             using (var uow = unitOfWorkFactory.CreateUnitOfWork())
@@ -93,5 +101,5 @@ namespace Fenerbahce.Services.Services.Impl
                 uow.Save();
             }
         }
-    }
+  }
 }

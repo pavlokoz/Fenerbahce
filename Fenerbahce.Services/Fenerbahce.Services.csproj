@@ -41,8 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ICommentService.cs" />
     <Compile Include="Services\IGroupService.cs" />
     <Compile Include="Services\IInstructorService.cs" />
+    <Compile Include="Services\Impl\CommentService.cs" />
     <Compile Include="Services\Impl\GroupService.cs" />
     <Compile Include="Services\Impl\InstructorService.cs" />
     <Compile Include="Services\Impl\NewsService.cs" />
@@ -53,6 +55,7 @@
     <Compile Include="Services\Impl\StudentService.cs" />
     <Compile Include="Services\Impl\SportService.cs" />
     <Compile Include="Services\Impl\TestService.cs" />
+    <Compile Include="Services\Impl\VisitorLogService.cs" />
     <Compile Include="Services\INewsService.cs" />
     <Compile Include="Services\IParentService.cs" />
     <Compile Include="Services\IPaymentService.cs" />
@@ -62,6 +65,7 @@
     <Compile Include="Services\ISportService.cs" />
     <Compile Include="Services\IStudentService.cs" />
     <Compile Include="Services\ITestService.cs" />
+    <Compile Include="Services\IVisitorLogService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fenerbahce.Infrastructure\Fenerbahce.Infrastructure.csproj">

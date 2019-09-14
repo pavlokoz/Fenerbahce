@@ -1,5 +1,6 @@
 ﻿using Fenerbahce.Infrastructure.Config;
 using Fenerbahce.Models.DTOModels;
+using Fenerbahce.Models.DTOModels.MobileDTO;
 using Fenerbahce.Models.EntityModels;
 using Fenerbahce.Models.IdentityModels;
 using Fenerbahce.Models.Mappers;
@@ -26,11 +27,13 @@ namespace Fenerbahce.Unity
             container.RegisterType<ISearchService, SearchService>();
             container.RegisterType<ISportService, SportService>();
             container.RegisterType<IInstructorService, InstructorService>();
+            container.RegisterType<ICommentService, CommentService>();
+            container.RegisterType<IVisitorLogService, VisitorLogService>();
             container.RegisterType<IParentService, ParentService>();
             container.RegisterType<IPaymentService, PaymentService>();
             container.RegisterType<INewsService, NewsService>();
 
-            //Mappers
+            //Mappers          
             container.RegisterType<IMapper<TestEntity, TestDTO>, TestMapper>();
             container.RegisterType<IMapper<StudentEntity, StudentDTO>, StudentMapper>();
             container.RegisterType<IMapper<GroupEntity, GroupDetailDTO>, GroupDetailMapper>();
@@ -43,6 +46,10 @@ namespace Fenerbahce.Unity
             container.RegisterType<IMapper<SchoolEntity, SchoolDetailDTO>, SchoolDetailMapper>();
             container.RegisterType<IMapper<InstructorGroupEntity, GroupInstructorDTO>, GroupInstructorMapper>();
             container.RegisterType<IMapper<UserEntity, ParentDTO>, ParentMapper>();
+            container.RegisterType<IMapper<CommentEntity, CommentDTO>, CommentMapper>();
+            container.RegisterType<IMapper<GroupEntity,GroupMobileDTO>, GroupMobileMapper>();
+            container.RegisterType<IMapper<StudentEntity, VisitorLogDTO>, StudentVisitorLogMapper>();
+            container.RegisterType<IMapper<VisitorLogEntity, VisitorLogDTO>, VisitLogMapper>();
             container.RegisterType<IMapper<StudentParentEntity, StudentParentDTO>, StudentParentMapper>();
             container.RegisterType<IMapper<PaymentEntity, PaymentDTO>, PaymentMapper>();
             container.RegisterType<IMapper<NewsEntity, NewsDTO>, NewsMapper>();

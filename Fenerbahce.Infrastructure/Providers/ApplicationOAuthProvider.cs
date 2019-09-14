@@ -29,8 +29,25 @@ namespace Fenerbahce.Infrastructure.Providers
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
             var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
+            var headers = context.Request.Headers;
+            var isSiteLogin = headers.Values.Any(x => x.Contains("Browser"));
 
-            ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
+            ApplicationUser user = null;
+            if (isSiteLogin)
+            {
+                user = await userManager.FindAsync(context.UserName, context.Password);
+            } 
+            else
+            {
+                user = await userManager.FindByEmailAsync(context.UserName);
+                if (user == null || user.SecurityPin != context.Password)
+                {
+                    context.SetError("invalid_grant", "The user name or password is incorrect.");
+                    return;
+                }
+
+            }
+
 
             if (user == null)
             {
