@@ -19,6 +19,11 @@ namespace Fenerbahce.Models.Mappers.Impl
 
         public GroupEntity Map(GroupDetailDTO source)
         {
+            if (source == null)
+            {
+                throw new ArgumentNullException("Source can not be null");
+            }
+
             return new GroupEntity
             {
                 GroupId = source.GroupId,
@@ -32,6 +37,11 @@ namespace Fenerbahce.Models.Mappers.Impl
 
         public GroupDetailDTO Map(GroupEntity source)
         {
+            if (source == null)
+            {
+                throw new ArgumentNullException("Source can not be null");
+            }
+
             return new GroupDetailDTO
             {
                 GroupId = source.GroupId,

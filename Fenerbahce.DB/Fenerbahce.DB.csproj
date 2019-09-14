@@ -58,6 +58,7 @@
     <None Include="packages.config" />
     <EmbeddedResource Include="Scripts\V5.3_FK_InstructorGroup_Instructor.sql" />
     <EmbeddedResource Include="Scripts\V5.3_FK_Payment_Student.sql" />
+    <EmbeddedResource Include="Scripts\V5.3_Table_Payment.sql" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Scripts\V2.0_Index_RoleNameIndex.sql" />

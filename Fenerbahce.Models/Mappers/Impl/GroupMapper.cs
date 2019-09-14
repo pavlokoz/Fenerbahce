@@ -1,5 +1,6 @@
 ﻿using Fenerbahce.Models.DTOModels;
 using Fenerbahce.Models.EntityModels;
+using System;
 
 namespace Fenerbahce.Models.Mappers.Impl
 {
@@ -7,6 +8,11 @@ namespace Fenerbahce.Models.Mappers.Impl
     {
         public GroupEntity Map(GroupDTO source)
         {
+            if (source == null)
+            {
+                throw new ArgumentNullException("Source can not be null");
+            }
+
             return new GroupEntity
             {
                 GroupId = source.GroupId,
@@ -18,6 +24,11 @@ namespace Fenerbahce.Models.Mappers.Impl
 
         public GroupDTO Map(GroupEntity source)
         {
+            if (source == null)
+            {
+                throw new ArgumentNullException("Source can not be null");
+            }
+
             return new GroupDTO
             {
                 GroupId = source.GroupId,

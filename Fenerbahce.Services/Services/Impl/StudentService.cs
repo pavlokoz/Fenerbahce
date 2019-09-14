@@ -75,8 +75,11 @@ namespace Fenerbahce.Services.Services.Impl
                               join parentRepo in uow.UserRepository.Get()
                               on studentParentRepo.ParentId equals parentRepo.UserId into parentLeft
                               from parentRepo in parentLeft.DefaultIfEmpty()
+                              join paymentRepo in uow.PaymentRepository.Get()
+                              on studentRepo.StudentId equals paymentRepo.StudentId into paymentLeft
+                              from paymentRepo in paymentLeft.DefaultIfEmpty()
                               where studentRepo.StudentId == id
-                              select new { studentRepo, groupRepo, studentParentRepo, parentRepo };
+                              select new { studentRepo, groupRepo, studentParentRepo, parentRepo, paymentRepo };
                 var student = query.ToList().Select(x => x.studentRepo).Distinct().SingleOrDefault();
                 if (student == null)
                 {
