@@ -8,13 +8,13 @@ namespace Fenerbahce.Models.Mappers.Impl
     public class GroupDetailMapper : IMapper<GroupEntity, GroupDetailDTO>
     {
         private readonly IMapper<StudentEntity, StudentDTO> studentMapper;
-        private readonly IMapper<UserEntity, InstructorDTO> instructorMapper;
+        private readonly IMapper<InstructorGroupEntity, GroupInstructorDTO> groupInstructorMapper;
 
         public GroupDetailMapper(IMapper<StudentEntity, StudentDTO> studentMapper,
-            IMapper<UserEntity, InstructorDTO> instructorMapper)
+            IMapper<InstructorGroupEntity, GroupInstructorDTO> groupInstructorMapper)
         {
             this.studentMapper = studentMapper;
-            this.instructorMapper = instructorMapper;
+            this.groupInstructorMapper = groupInstructorMapper;
         }
 
         public GroupEntity Map(GroupDetailDTO source)
@@ -30,8 +30,7 @@ namespace Fenerbahce.Models.Mappers.Impl
                 GroupName = source.GroupName,
                 SchoolId = source.SchoolId,
                 SportId = source.SportId,
-                Students = source.Students.Select(studentMapper.Map).ToList(),
-                Instructors = source.Instructors.Select(instructorMapper.Map).ToList()
+                Students = source.Students?.Select(studentMapper.Map).ToList()
             };
         }
 
@@ -51,7 +50,7 @@ namespace Fenerbahce.Models.Mappers.Impl
                 SchoolName = source.School.SchoolName,
                 SportName = source.Sport.SportName,
                 Students = source.Students.Select(studentMapper.Map).ToList(),
-                Instructors = source.Instructors.Select(instructorMapper.Map).ToList()
+                GroupInstructors = source.InstructorGroups.Select(groupInstructorMapper.Map).ToList()
             };
         }
     }

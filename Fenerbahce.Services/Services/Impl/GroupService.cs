@@ -77,13 +77,6 @@ namespace Fenerbahce.Services.Services.Impl
                             select new { groupRepo, instructorGroupRepo, sportRepo, schoolRepo, userRepo, studentRepo };
                 var group = query.ToList().
                     Select(x => x.groupRepo).Distinct().SingleOrDefault();
-
-                if (group == null)
-                {
-                    return null;
-                }
-
-                group.Instructors = group.InstructorGroups?.Select(x => x.Instructor).ToList();
                 return group;
             }
         }
