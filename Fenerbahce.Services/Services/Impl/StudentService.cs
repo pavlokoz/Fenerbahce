@@ -122,7 +122,11 @@ namespace Fenerbahce.Services.Services.Impl
 
         public void Update(StudentEntity entity)
         {
-            throw new NotImplementedException();
+            using (var uow = unitOfWorkFactory.CreateUnitOfWork())
+            {
+                uow.StudentRepository.Update(entity);
+                uow.Save();
+            }
         }
     }
 }

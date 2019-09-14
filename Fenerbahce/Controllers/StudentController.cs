@@ -33,7 +33,7 @@ namespace Fenerbahce.Controllers
             studentService.Create(studentEntity);
             return Ok();
         }
-
+        
         [HttpGet]
         public IHttpActionResult GetStudent([FromUri] long studentId)
         {
@@ -47,6 +47,16 @@ namespace Fenerbahce.Controllers
         public IHttpActionResult DeleteStudent([FromUri]long studentId)
         {
             studentService.Delete(studentId);
+            return Ok();
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPut]
+        public IHttpActionResult UpdateStudent([FromBody] StudentDTO student, [FromUri] long groupId)
+        {
+            student.GroupId = groupId;
+            var studentEntity = studentMapper.Map(student);
+            studentService.Update(studentEntity);
             return Ok();
         }
     }

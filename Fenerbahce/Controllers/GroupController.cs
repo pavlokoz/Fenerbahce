@@ -71,7 +71,8 @@ namespace Fenerbahce.Controllers
             groupService.Delete(groupId);
             return Ok();
         }
-        
+
+        [Authorize(Roles = "Admin")]
         [HttpPut]
         public IHttpActionResult UpdateGroup([FromBody]GroupDTO groupDTO)
         {
