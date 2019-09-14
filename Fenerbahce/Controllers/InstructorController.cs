@@ -46,5 +46,27 @@ namespace Fenerbahce.Controllers
             instructorService.AddInstructor(entity);
             return Ok();
         }
+
+        [Authorize(Roles = "Admin")]
+        [HttpDelete]
+        public IHttpActionResult DeleteInstructor([FromUri]int instructorId, [FromUri]long groupId)
+        {
+            var instructorGroup = new InstructorGroupEntity
+            {
+                GroupId = groupId,
+                InstructorId = instructorId
+            };
+            instructorService.DeleteInstructor(instructorGroup);
+            return Ok();
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPut]
+        public IHttpActionResult UpdateInstructor([FromBody]GroupInstructorDTO groupInstructor)
+        {
+            var entity = groupInstructorMapper.Map(groupInstructor);
+            instructorService.Update(entity);
+            return Ok(); 
+        }
     }
 }

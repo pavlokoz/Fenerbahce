@@ -7,5 +7,8 @@ namespace Fenerbahce.Services.Services
     {
         IList<UserEntity> GetInstructors();
         void AddInstructor(InstructorGroupEntity entity);
+        void Delete(object id);
+        void DeleteInstructor(InstructorGroupEntity instrGroup);
+        void Update(InstructorGroupEntity instructorGroupEntity);
     }
 }

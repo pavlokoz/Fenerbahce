@@ -50,7 +50,11 @@ namespace Fenerbahce.Services.Services.Impl
 
         public void Delete(object id)
         {
-            throw new NotImplementedException();
+            using (var uow = unitOfWorkFactory.CreateUnitOfWork())
+            {
+                uow.StudentRepository.Delete(id);
+                uow.Save();
+            }
         }
 
         public IList<StudentEntity> GetAll()
@@ -121,7 +125,11 @@ namespace Fenerbahce.Services.Services.Impl
 
         public void Update(StudentEntity entity)
         {
-            throw new NotImplementedException();
+            using (var uow = unitOfWorkFactory.CreateUnitOfWork())
+            {
+                uow.StudentRepository.Update(entity);
+                uow.Save();
+            }
         }
     }
 }

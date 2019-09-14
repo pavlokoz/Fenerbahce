@@ -34,7 +34,11 @@ namespace Fenerbahce.Services.Services.Impl
 
         public void Delete(object id)
         {
-            throw new System.NotImplementedException();
+            using (var uow = unitOfWorkFactory.CreateUnitOfWork())
+            {
+                uow.GroupRepository.Delete(id);
+                uow.Save();
+            }
         }
 
         public IList<GroupEntity> GetAll()
