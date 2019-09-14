@@ -15,6 +15,7 @@ namespace Fenerbahce.EF.Mappings
             Property(x => x.Title).HasColumnName("Title").IsRequired().HasMaxLength(255);
             Property(x => x.Image).HasColumnName("Image").IsOptional();
             Property(x => x.Info).HasColumnName("Info").IsOptional();
+            Property(x => x.CreateDate).HasColumnName("CreateDate").IsRequired();
             Property(x => x.AuthorId).HasColumnName("AuthorId").IsRequired();
 
             HasRequired<UserEntity>(g => g.Author)

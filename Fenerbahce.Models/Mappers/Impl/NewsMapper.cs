@@ -17,7 +17,8 @@ namespace Fenerbahce.Models.Mappers.Impl
             {
                 NewsId = source.NewsId,
                 Title = source.Title,
-                Info = source.Info
+                Info = source.Info,
+                CreateDate = source.CreateDate
             };
         }
 
@@ -32,7 +33,8 @@ namespace Fenerbahce.Models.Mappers.Impl
             {
                 NewsId = source.NewsId,
                 Title = source.Title,
-                Info = source.Info
+                Info = source.Info,
+                CreateDate = source.CreateDate
             };
         }
     }

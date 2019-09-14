@@ -3,6 +3,7 @@
 	[Title] [nvarchar](255) NOT NULL,
 	[Image] [varbinary](max) NULL,
 	[Info] [text] NULL,
+	[CreateDate] [date] NOT NULL,
 	[AuthorId] [int] NOT NULL,
  CONSTRAINT [PK_News] PRIMARY KEY CLUSTERED 
 (
