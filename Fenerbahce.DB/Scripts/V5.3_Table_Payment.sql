@@ -1,0 +1,18 @@
+﻿IF OBJECT_ID('dbo.Payment') IS NOT NULL 
+BEGIN
+   DROP TABLE [dbo].[Payment]
+END
+GO
+
+CREATE TABLE [dbo].[Payment](
+	[PaymentId] [bigint] IDENTITY(1,1) NOT NULL,
+	[StudentId] [bigint] NOT NULL,
+	[Amount] [int] NOT NULL,
+	[Type] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_Payment] PRIMARY KEY CLUSTERED 
+(
+	[PaymentId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO

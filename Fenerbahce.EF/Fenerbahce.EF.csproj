@@ -51,6 +51,7 @@
     <Compile Include="Mappings\CommentMapping.cs" />
     <Compile Include="Mappings\GroupMapping.cs" />
     <Compile Include="Mappings\InstructorGroupMapping.cs" />
+    <Compile Include="Mappings\NewsMapping.cs" />
     <Compile Include="Mappings\PaymentMapping.cs" />
     <Compile Include="Mappings\RoleMapping.cs" />
     <Compile Include="Mappings\SchoolMapping.cs" />

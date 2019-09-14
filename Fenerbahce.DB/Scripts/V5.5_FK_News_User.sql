@@ -1,0 +1,5 @@
+﻿ALTER TABLE [dbo].[News]  WITH CHECK ADD  CONSTRAINT [FK_News_User] FOREIGN KEY([AuthorId])
+REFERENCES [dbo].[User] ([UserId])
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[News] CHECK CONSTRAINT [FK_News_User]

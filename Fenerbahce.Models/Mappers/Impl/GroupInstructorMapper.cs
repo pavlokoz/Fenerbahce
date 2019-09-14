@@ -10,6 +10,13 @@ namespace Fenerbahce.Models.Mappers.Impl
 {
     public class GroupInstructorMapper : IMapper<InstructorGroupEntity, GroupInstructorDTO>
     {
+        private readonly IMapper<UserEntity, InstructorDTO> instructorMapper;
+
+        public GroupInstructorMapper(IMapper<UserEntity, InstructorDTO> instructorMapper)
+        {
+            this.instructorMapper = instructorMapper;
+        }
+
         public InstructorGroupEntity Map(GroupInstructorDTO source)
         {
             if (source == null)
@@ -38,7 +45,8 @@ namespace Fenerbahce.Models.Mappers.Impl
                 GroupId = source.GroupId,
                 InstructorId = source.InstructorId,
                 Salary = source.Salary,
-                Type = source.Type
+                Type = source.Type,
+                Instructor = instructorMapper.Map(source.Instructor)
             };
         }
     }

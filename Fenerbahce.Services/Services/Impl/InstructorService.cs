@@ -23,6 +23,24 @@ namespace Fenerbahce.Services.Services.Impl
             }
         }
 
+        public void Delete(object id)
+        {
+            using (var uow = unitOfWorkFactory.CreateUnitOfWork())
+            {
+                uow.InstructorGroupRepository.Delete(id);
+                uow.Save();
+            }
+        }
+
+        public void DeleteInstructor(InstructorGroupEntity instrGroup)
+        {
+            using (var uow = unitOfWorkFactory.CreateUnitOfWork())
+            {
+                uow.InstructorGroupRepository.Delete(instrGroup);
+                uow.Save();
+            }
+        }
+
         public IList<UserEntity> GetInstructors()
         {
             using (var uow = unitOfWorkFactory.CreateUnitOfWork())
@@ -35,6 +53,15 @@ namespace Fenerbahce.Services.Services.Impl
 
                 var users = query.ToList();
                 return users;
+            }
+        }
+
+        public void Update(InstructorGroupEntity instructorGroupEntity)
+        {
+            using (var uow = unitOfWorkFactory.CreateUnitOfWork())
+            {
+                uow.InstructorGroupRepository.Update(instructorGroupEntity);
+                uow.Save();
             }
         }
     }

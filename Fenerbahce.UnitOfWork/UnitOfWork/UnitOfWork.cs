@@ -30,6 +30,9 @@ namespace Fenerbahce.UnitOfWork.UnitOfWork
         public IRepository<VisitorLogEntity> VisitorLogRepository => visitorLogRepository ??
           (visitorLogRepository = new Repository<VisitorLogEntity>(Context));
 
+        private IRepository<NewsEntity> newsRepository;
+
+
         public IRepository<TestEntity> TestRepository => testRepository ??
           (testRepository = new Repository<TestEntity>(Context));
 
@@ -65,6 +68,9 @@ namespace Fenerbahce.UnitOfWork.UnitOfWork
 
         public IRepository<CommentEntity> CommentRepository => commentRepository ??
             (commentRepository = new Repository<CommentEntity>(Context));
+            
+        public IRepository<NewsEntity> NewsRepository => newsRepository ??
+            (newsRepository = new Repository<NewsEntity>(Context));
 
         public void Save()
         {

@@ -3,8 +3,7 @@
 	[FirstName] [nvarchar](50) NOT NULL,
 	[LastName] [nvarchar](50) NOT NULL,
 	[DateOfBirth] [date] NOT NULL,
-	[Patrimonial] [nvarchar](50) NOT NULL,
-	[SportId] [bigint] NOT NULL,
+	[Patrimonial] [nvarchar](50) NULL,
 	[GroupId] [bigint] NOT NULL,
  CONSTRAINT [PK_Student] PRIMARY KEY CLUSTERED 
 (

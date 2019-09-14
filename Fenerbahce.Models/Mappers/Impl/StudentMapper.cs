@@ -8,10 +8,13 @@ namespace Fenerbahce.Models.Mappers.Impl
     public class StudentMapper : IMapper<StudentEntity, StudentDTO>
     {
         private readonly IMapper<UserEntity, ParentDTO> parentMapper;
+        private readonly IMapper<PaymentEntity, PaymentDTO> paymentMapper;
 
-        public StudentMapper(IMapper<UserEntity, ParentDTO> parentMapper)
+        public StudentMapper(IMapper<UserEntity, ParentDTO> parentMapper,
+            IMapper<PaymentEntity, PaymentDTO> paymentMapper)
         {
             this.parentMapper = parentMapper;
+            this.paymentMapper = paymentMapper;
         }
 
         public StudentEntity Map(StudentDTO source)
@@ -28,8 +31,7 @@ namespace Fenerbahce.Models.Mappers.Impl
                 LastName = source.LastName,
                 DateOfBirth = source.DateOfBirth,
                 Patrimonial = source.Patrimonial,
-                GroupId = source.GroupId,
-                Parents = source.Parents.Select(parentMapper.Map).ToList()
+                GroupId = source.GroupId
             };
         }
 
@@ -49,7 +51,8 @@ namespace Fenerbahce.Models.Mappers.Impl
                 Patrimonial = source.Patrimonial,
                 GroupId = source.GroupId,
                 GroupName = source.Group?.GroupName,
-                Parents = source.Parents.Select(parentMapper.Map).ToList()
+                Parents = source.Parents.Select(parentMapper.Map).ToList(),
+                Payments = source.Payments.Select(paymentMapper.Map).ToList()
             };
         }
     }

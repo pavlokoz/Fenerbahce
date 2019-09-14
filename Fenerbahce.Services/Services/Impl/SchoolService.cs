@@ -32,6 +32,15 @@ namespace Fenerbahce.Services.Services.Impl
             }
         }
 
+        public void Delete(object id)
+        {
+            using (var uow = unitOfWorkFactory.CreateUnitOfWork())
+            {
+                uow.SchoolRepository.Delete(id);
+                uow.Save();
+            }
+        }
+
         public IList<SchoolEntity> GetAll()
         {
             using (var uow = unitOfWorkFactory.CreateUnitOfWork())
@@ -54,9 +63,33 @@ namespace Fenerbahce.Services.Services.Impl
                             from sportRepo in sportLeft.DefaultIfEmpty()
                             where schoolRepo.SchoolId == id
                             select new { schoolRepo, groupRepo, sportRepo };
-                            ;
                 var result = query.ToList().Select(x => x.schoolRepo).Distinct().SingleOrDefault();
                 return result;
+            }
+        }
+
+        public byte[] GetLogoById(long schoolId)
+        {
+            using (var uow = unitOfWorkFactory.CreateUnitOfWork())
+            {
+                var query = from schoolRepo in uow.SchoolRepository.Get()
+                            where schoolRepo.SchoolId == schoolId
+                            select schoolRepo.Logo;
+                var result = query.ToList().Distinct().SingleOrDefault();
+                return result;
+            }
+        }
+
+        public void Update(SchoolEntity entity)
+        {
+            using (var uow = unitOfWorkFactory.CreateUnitOfWork())
+            {
+                if (entity.Logo == null)
+                {
+                    entity.Logo = this.GetLogoById(entity.SchoolId);
+                }
+                uow.SchoolRepository.Update(entity);
+                uow.Save();
             }
         }
     }

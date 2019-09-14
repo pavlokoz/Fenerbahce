@@ -32,6 +32,15 @@ namespace Fenerbahce.Services.Services.Impl
             }
         }
 
+        public void Delete(object id)
+        {
+            using (var uow = unitOfWorkFactory.CreateUnitOfWork())
+            {
+                uow.GroupRepository.Delete(id);
+                uow.Save();
+            }
+        }
+
         public IList<GroupEntity> GetAll()
         {
             using (var uow = unitOfWorkFactory.CreateUnitOfWork())
@@ -72,17 +81,10 @@ namespace Fenerbahce.Services.Services.Impl
                             select new { groupRepo, instructorGroupRepo, sportRepo, schoolRepo, userRepo, studentRepo };
                 var group = query.ToList().
                     Select(x => x.groupRepo).Distinct().SingleOrDefault();
-
-                if (group == null)
-                {
-                    return null;
-                }
-
-                group.Instructors = group.InstructorGroups?.Select(x => x.Instructor).ToList();
                 return group;
             }
         }
-
+        
         public IList<GroupEntity> GetBySportId(long sportId)
         {
             using (var uow = unitOfWorkFactory.CreateUnitOfWork())
@@ -91,5 +93,13 @@ namespace Fenerbahce.Services.Services.Impl
                 return groups;
             }
         }
-    }
+        public void Update(GroupEntity entity)
+        {
+            using (var uow = unitOfWorkFactory.CreateUnitOfWork())
+            {
+                uow.GroupRepository.Update(entity);
+                uow.Save();
+            }
+        }
+  }
 }

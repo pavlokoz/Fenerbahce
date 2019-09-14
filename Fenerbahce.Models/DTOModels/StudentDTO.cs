@@ -13,5 +13,6 @@ namespace Fenerbahce.Models.DTOModels
         public long GroupId { get; set; }
         public string GroupName { get; set; }
         public IList<ParentDTO> Parents { get; set; }
+        public IList<PaymentDTO> Payments { get; set; }
     }
 }

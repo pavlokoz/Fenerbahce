@@ -36,5 +36,15 @@ namespace Fenerbahce.Services.Services.Impl
         {
             throw new System.NotImplementedException();
         }
+
+        public void Delete(object id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Update(TestEntity entity)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

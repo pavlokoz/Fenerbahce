@@ -1,5 +1,6 @@
 ﻿using Fenerbahce.Models.DTOModels;
 using Fenerbahce.Models.EntityModels;
+using System;
 
 namespace Fenerbahce.Models.Mappers.Impl
 {
@@ -7,6 +8,11 @@ namespace Fenerbahce.Models.Mappers.Impl
     {
         public UserEntity Map(InstructorDTO source)
         {
+            if (source == null)
+            {
+                throw new ArgumentNullException("Source can not be null");
+            }
+
             return new UserEntity
             {
                 UserId = source.InstructorId,
@@ -19,6 +25,11 @@ namespace Fenerbahce.Models.Mappers.Impl
 
         public InstructorDTO Map(UserEntity source)
         {
+            if (source == null)
+            {
+                throw new ArgumentNullException("Source can not be null");
+            }
+
             return new InstructorDTO
             {
                 InstructorId = source.UserId,

@@ -11,6 +11,7 @@ using System.Web.Http;
 
 namespace Fenerbahce.Controllers
 {
+    [Authorize]
     public class InstructorController : ApiController
     {
         private readonly ISearchService searchService;
@@ -37,12 +38,35 @@ namespace Fenerbahce.Controllers
             return Ok(instructorsDTO);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IHttpActionResult AddInstructor([FromBody] GroupInstructorDTO groupInstructor)
         {
             var entity = groupInstructorMapper.Map(groupInstructor);
             instructorService.AddInstructor(entity);
             return Ok();
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpDelete]
+        public IHttpActionResult DeleteInstructor([FromUri]int instructorId, [FromUri]long groupId)
+        {
+            var instructorGroup = new InstructorGroupEntity
+            {
+                GroupId = groupId,
+                InstructorId = instructorId
+            };
+            instructorService.DeleteInstructor(instructorGroup);
+            return Ok();
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPut]
+        public IHttpActionResult UpdateInstructor([FromBody]GroupInstructorDTO groupInstructor)
+        {
+            var entity = groupInstructorMapper.Map(groupInstructor);
+            instructorService.Update(entity);
+            return Ok(); 
         }
     }
 }

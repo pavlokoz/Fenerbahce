@@ -13,6 +13,7 @@ namespace Fenerbahce.Models.EntityModels
             Groups = new List<GroupEntity>();
             StudentParents = new List<StudentParentEntity>();
             Students = new List<StudentEntity>();
+            News = new List<NewsEntity>();
         }
 
         public int UserId { get; set; }
@@ -27,5 +28,7 @@ namespace Fenerbahce.Models.EntityModels
         public IList<GroupEntity> Groups { get; set; }
         public IList<StudentParentEntity> StudentParents { get; set; }
         public IList<StudentEntity> Students { get; set; }
+        public IList<NewsEntity> News { get; set; }
+
     }
 }

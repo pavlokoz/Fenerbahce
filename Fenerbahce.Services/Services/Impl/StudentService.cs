@@ -48,6 +48,15 @@ namespace Fenerbahce.Services.Services.Impl
             }
         }
 
+        public void Delete(object id)
+        {
+            using (var uow = unitOfWorkFactory.CreateUnitOfWork())
+            {
+                uow.StudentRepository.Delete(id);
+                uow.Save();
+            }
+        }
+
         public IList<StudentEntity> GetAll()
         {
             using (var uow = unitOfWorkFactory.CreateUnitOfWork())
@@ -70,8 +79,11 @@ namespace Fenerbahce.Services.Services.Impl
                               join parentRepo in uow.UserRepository.Get()
                               on studentParentRepo.ParentId equals parentRepo.UserId into parentLeft
                               from parentRepo in parentLeft.DefaultIfEmpty()
+                              join paymentRepo in uow.PaymentRepository.Get()
+                              on studentRepo.StudentId equals paymentRepo.StudentId into paymentLeft
+                              from paymentRepo in paymentLeft.DefaultIfEmpty()
                               where studentRepo.StudentId == id
-                              select new { studentRepo, groupRepo, studentParentRepo, parentRepo };
+                              select new { studentRepo, groupRepo, studentParentRepo, parentRepo, paymentRepo };
                 var student = query.ToList().Select(x => x.studentRepo).Distinct().SingleOrDefault();
                 if (student == null)
                 {
@@ -108,6 +120,15 @@ namespace Fenerbahce.Services.Services.Impl
                     startWithDictionary.Add(item);
                 }
                 return startWithDictionary;
+            }
+        }
+
+        public void Update(StudentEntity entity)
+        {
+            using (var uow = unitOfWorkFactory.CreateUnitOfWork())
+            {
+                uow.StudentRepository.Update(entity);
+                uow.Save();
             }
         }
     }

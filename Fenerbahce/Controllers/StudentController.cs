@@ -11,6 +11,7 @@ using System.Web.Http;
 
 namespace Fenerbahce.Controllers
 {
+    [Authorize]
     public class StudentController : ApiController
     {
         private readonly IStudentService studentService;
@@ -23,6 +24,7 @@ namespace Fenerbahce.Controllers
             this.studentMapper = studentMapper;
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IHttpActionResult CreateStudent([FromBody] StudentDTO student, [FromUri] long groupId)
         {
@@ -31,13 +33,31 @@ namespace Fenerbahce.Controllers
             studentService.Create(studentEntity);
             return Ok();
         }
-
+        
         [HttpGet]
         public IHttpActionResult GetStudent([FromUri] long studentId)
         {
             var studentEntity = studentService.GetById(studentId);
             var studentDTO = studentMapper.Map(studentEntity);
             return Ok(studentDTO);
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpDelete]
+        public IHttpActionResult DeleteStudent([FromUri]long studentId)
+        {
+            studentService.Delete(studentId);
+            return Ok();
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPut]
+        public IHttpActionResult UpdateStudent([FromBody] StudentDTO student, [FromUri] long groupId)
+        {
+            student.GroupId = groupId;
+            var studentEntity = studentMapper.Map(student);
+            studentService.Update(studentEntity);
+            return Ok();
         }
     }
 }

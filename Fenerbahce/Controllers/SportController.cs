@@ -11,6 +11,7 @@ using System.Web.Http;
 
 namespace Fenerbahce.Controllers
 {
+    [Authorize]
     public class SportController : ApiController
     {
         private readonly IMapper<SportEntity, SportDTO> sportMapper;

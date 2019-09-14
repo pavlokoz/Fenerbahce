@@ -7,6 +7,11 @@ namespace Fenerbahce.Models.Mappers.Impl
     {
         public ApplicationUser Map(RegisterOfUserBindingModel source)
         {
+            if (source == null)
+            {
+                throw new ArgumentNullException("Source can not be null");
+            }
+
             return new ApplicationUser()
             {
                 Id = 0,
