@@ -18,7 +18,7 @@ namespace Fenerbahce.Models.Mappers.Impl
                 NewsId = source.NewsId,
                 Title = source.Title,
                 Info = source.Info,
-                CreateDate = source.CreateDate
+                CreateDate = source.CreateDate ?? DateTime.Now.Date
             };
         }
 

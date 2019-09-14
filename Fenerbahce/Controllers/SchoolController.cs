@@ -129,7 +129,7 @@ namespace Fenerbahce.Controllers
             var imageBytes = schoolService.GetLogoById(schoolId);
             if (imageBytes != null)
             {
-                Image myImage = Image.FromStream(new MemoryStream(this.schoolService.GetLogoById(schoolId)));
+                Image myImage = Image.FromStream(new MemoryStream(imageBytes));
 
                 MemoryStream memoryStream = new MemoryStream();
 
