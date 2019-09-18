@@ -6,6 +6,6 @@ namespace Fenerbahce.Models.DTOModels.MobileDTO
     {
         public long CommentId { get; set; }
         public string CommentText { get; set; }
-        public DateTime CommentDate { get; set; }
+        public DateTime? CommentDate { get; set; }
     }
 }

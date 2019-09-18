@@ -1,5 +1,6 @@
 ﻿using Fenerbahce.Models.DTOModels.MobileDTO;
 using Fenerbahce.Models.EntityModels;
+using System;
 
 namespace Fenerbahce.Models.Mappers.Impl
 {
@@ -11,7 +12,7 @@ namespace Fenerbahce.Models.Mappers.Impl
             {
                 CommentId = source.CommentId,
                 CommentText = source.CommentText,
-                CommentDate = source.CommentDate
+                CommentDate = source.CommentDate ?? DateTime.Now.Date
             };
         }
 
@@ -21,7 +22,7 @@ namespace Fenerbahce.Models.Mappers.Impl
             {
                 CommentId = source.CommentId,
                 CommentText = source.CommentText,
-                CommentDate = source.CommentDate.Value
+                CommentDate = source.CommentDate
             };
         }
     }
