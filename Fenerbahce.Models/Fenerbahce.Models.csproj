@@ -72,6 +72,7 @@
     <Compile Include="DTOModels\StudentDTO.cs" />
     <Compile Include="DTOModels\StudentParentDTO.cs" />
     <Compile Include="DTOModels\TestDTO.cs" />
+    <Compile Include="DTOModels\UserDTO.cs" />
     <Compile Include="EntityModels\CommentEntity.cs" />
     <Compile Include="EntityModels\GroupEntity.cs" />
     <Compile Include="EntityModels\InstructorGroupEntity.cs" />
@@ -108,6 +109,7 @@
     <Compile Include="Mappers\Impl\TestMapper.cs" />
     <Compile Include="Mappers\Impl\SchoolDetailMapper.cs" />
     <Compile Include="Mappers\Impl\StudentVisitorLogMapper.cs" />
+    <Compile Include="Mappers\Impl\UserMapper.cs" />
     <Compile Include="Mappers\Impl\VisitLogMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
