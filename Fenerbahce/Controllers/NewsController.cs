@@ -40,10 +40,9 @@ namespace Fenerbahce.Controllers
 
         [Authorize(Roles = "Admin,Instructor")]
         [HttpPut]
-        public IHttpActionResult UpdateNews(NewsDTO newsDTO)
+        public IHttpActionResult UpdateNews([FromBody]NewsDTO newsDTO)
         {
             var news = newsMapper.Map(newsDTO);
-            news.AuthorId = this.User.Identity.GetUserId<int>();
             newsService.Update(news);
             return Ok();
         }
@@ -64,7 +63,7 @@ namespace Fenerbahce.Controllers
 
         [Authorize(Roles = "Admin,Instructor")]
         [HttpDelete]
-        public IHttpActionResult Delete(long newsId)
+        public IHttpActionResult DeleteNews(long newsId)
         {
             newsService.Delete(newsId);
             return Ok();

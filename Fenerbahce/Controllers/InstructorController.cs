@@ -2,11 +2,7 @@
 using Fenerbahce.Models.EntityModels;
 using Fenerbahce.Models.Mappers;
 using Fenerbahce.Services.Services;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace Fenerbahce.Controllers
