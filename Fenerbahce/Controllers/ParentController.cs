@@ -26,5 +26,18 @@ namespace Fenerbahce.Controllers
 			parentService.AddParent(studentParentEntity);
 			return Ok();
 		}
+
+		[Authorize(Roles = "Admin")]
+		[HttpDelete]
+		public IHttpActionResult DeleteParent([FromUri]int parentId, [FromUri]long studentId)
+		{
+			var studentParentEntity = new StudentParentEntity
+			{
+				ParentId = parentId,
+				StudentId = studentId
+			};
+			parentService.Delete(studentParentEntity);
+			return Ok();
+		}
 	}
 }

@@ -83,9 +83,12 @@ namespace Fenerbahce.Controllers
         [HttpPost]
         public IHttpActionResult CreateComment([FromBody] CommentDTO commentDTO, [FromUri] long groupId)
         {
-            var comment = commentMapper.Map(commentDTO);
-            comment.GroupId = groupId;
-            commentService.Create(comment);
+            if(!string.IsNullOrEmpty(commentDTO.CommentText))
+            {
+                var comment = commentMapper.Map(commentDTO);
+                comment.GroupId = groupId;
+                commentService.Create(comment);
+            }     
             return Ok();
         }
 
