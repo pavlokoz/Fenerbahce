@@ -2,8 +2,8 @@
 
 namespace Fenerbahce.Services.Services
 {
-    public interface IParentService
-    {
-        void AddParent(StudentParentEntity studentParent);
-    }
+	public interface IParentService
+	{
+		void AddParent(StudentParentEntity studentParent);
+	}
 }

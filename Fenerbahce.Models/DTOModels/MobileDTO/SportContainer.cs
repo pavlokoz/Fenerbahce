@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Fenerbahce.Models.DTOModels.MobileDTO
 {
-    public class SportContainer
-    {
-        public IList<SportDTO> Sports { get; set; }
-    }
+	public class SportContainer
+	{
+		public IList<SportDTO> Sports { get; set; }
+	}
 }

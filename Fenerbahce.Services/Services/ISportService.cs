@@ -2,7 +2,7 @@
 
 namespace Fenerbahce.Services.Services
 {
-    public interface ISportService: IService<SportEntity>
-    {
-    }
+	public interface ISportService : IService<SportEntity>
+	{
+	}
 }

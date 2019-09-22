@@ -2,8 +2,8 @@
 
 namespace Fenerbahce.Services.Services
 {
-    public interface ITestService : IService<TestEntity>
-    {
+	public interface ITestService : IService<TestEntity>
+	{
 
-    }
+	}
 }

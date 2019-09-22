@@ -2,7 +2,7 @@
 
 namespace Fenerbahce.Services.Services
 {
-    public interface IPaymentService: IService<PaymentEntity>
-    {
-    }
+	public interface IPaymentService : IService<PaymentEntity>
+	{
+	}
 }

@@ -11,23 +11,23 @@ using System.Web.Http;
 
 namespace Fenerbahce.Controllers
 {
-    [Authorize]
-    public class SportController : ApiController
-    {
-        private readonly IMapper<SportEntity, SportDTO> sportMapper;
-        private readonly ISportService sportService;
+	[Authorize]
+	public class SportController : ApiController
+	{
+		private readonly IMapper<SportEntity, SportDTO> sportMapper;
+		private readonly ISportService sportService;
 
-        public SportController(IMapper<SportEntity, SportDTO> sportMapper,
-            ISportService sportService)
-        {
-            this.sportMapper = sportMapper;
-            this.sportService = sportService;
-        }
+		public SportController(IMapper<SportEntity, SportDTO> sportMapper,
+			ISportService sportService)
+		{
+			this.sportMapper = sportMapper;
+			this.sportService = sportService;
+		}
 
-        public IHttpActionResult GetAll()
-        {
-            var sports = sportService.GetAll();
-            return Ok(sports.Select(sportMapper.Map).ToList());
-        }            
-    }
+		public IHttpActionResult GetAll()
+		{
+			var sports = sportService.GetAll();
+			return Ok(sports.Select(sportMapper.Map).ToList());
+		}
+	}
 }

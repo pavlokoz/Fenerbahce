@@ -59,6 +59,8 @@
     <EmbeddedResource Include="Scripts\V5.3_FK_InstructorGroup_Instructor.sql" />
     <EmbeddedResource Include="Scripts\V5.3_FK_Payment_Student.sql" />
     <EmbeddedResource Include="Scripts\V5.3_Table_Payment.sql" />
+    <EmbeddedResource Include="Scripts\V6.4_Constraint_Event_Active.sql" />
+    <Content Include="Scripts\V6.4_FK_Event_Group.sql" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Scripts\V2.0_Index_RoleNameIndex.sql" />
@@ -129,6 +131,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Scripts\V5.4_Table_News.sql" />
     <EmbeddedResource Include="Scripts\V5.5_FK_News_User.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\V6.3_Table_Event.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Context\FenerbahceContext.cs" />
     <Compile Include="Mappings\CommentMapping.cs" />
+    <Compile Include="Mappings\EventMapping.cs" />
     <Compile Include="Mappings\GroupMapping.cs" />
     <Compile Include="Mappings\InstructorGroupMapping.cs" />
     <Compile Include="Mappings\NewsMapping.cs" />
