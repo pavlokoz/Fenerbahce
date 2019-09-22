@@ -3,8 +3,9 @@ using System.Collections.Generic;
 
 namespace Fenerbahce.Services.Services
 {
-    public interface IGroupService: IService<GroupEntity>
-    {
-        IList<GroupEntity> GetBySportId(long id);
-    }
+	public interface IGroupService : IService<GroupEntity>
+	{
+		IList<GroupEntity> GetBySportId(long id);
+		IList<GroupEntity> GetBySchoolId(long schoolId);
+	}
 }

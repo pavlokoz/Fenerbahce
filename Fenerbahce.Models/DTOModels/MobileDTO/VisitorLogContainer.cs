@@ -2,8 +2,8 @@
 
 namespace Fenerbahce.Models.DTOModels.MobileDTO
 {
-    public class VisitorLogContainer
-    {
-        public List<VisitorLogDTO> Payload { get; set; }
-    }
+	public class VisitorLogContainer
+	{
+		public List<VisitorLogDTO> Payload { get; set; }
+	}
 }

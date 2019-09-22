@@ -53,6 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOModels\CalendarEventDTO.cs" />
+    <Compile Include="DTOModels\EventDTO.cs" />
     <Compile Include="DTOModels\GroupDetailDTO.cs" />
     <Compile Include="DTOModels\GroupDTO.cs" />
     <Compile Include="DTOModels\GroupInstructorDTO.cs" />
@@ -74,6 +76,7 @@
     <Compile Include="DTOModels\TestDTO.cs" />
     <Compile Include="DTOModels\UserDTO.cs" />
     <Compile Include="EntityModels\CommentEntity.cs" />
+    <Compile Include="EntityModels\EventEntity.cs" />
     <Compile Include="EntityModels\GroupEntity.cs" />
     <Compile Include="EntityModels\InstructorGroupEntity.cs" />
     <Compile Include="EntityModels\NewsEntity.cs" />
@@ -87,12 +90,15 @@
     <Compile Include="EntityModels\UserEntity.cs" />
     <Compile Include="EntityModels\UserRoleEntity.cs" />
     <Compile Include="EntityModels\VisitorLogEntity.cs" />
+    <Compile Include="Enums\EventFrequency.cs" />
     <Compile Include="IdentityModels\AccountBindingModels.cs" />
     <Compile Include="IdentityModels\AccountViewModel.cs" />
     <Compile Include="IdentityModels\IdentityModels.cs" />
     <Compile Include="Mappers\IMapper.cs" />
     <Compile Include="Mappers\Impl\ApplicationUserMapper.cs" />
+    <Compile Include="Mappers\Impl\CalendarEventMapper.cs" />
     <Compile Include="Mappers\Impl\CommentMapper.cs" />
+    <Compile Include="Mappers\Impl\EventMapper.cs" />
     <Compile Include="Mappers\Impl\NewsMapper.cs" />
     <Compile Include="Mappers\Impl\PaymentMapper.cs" />
     <Compile Include="Mappers\Impl\StudentParentMapper.cs" />

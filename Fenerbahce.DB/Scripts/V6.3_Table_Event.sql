@@ -1,0 +1,13 @@
+﻿CREATE TABLE [dbo].[Event](
+	[EventId] [bigint] IDENTITY(1,1) NOT NULL,
+	[GroupId] [bigint] NOT NULL,
+	[EventTime] [datetime] NOT NULL,
+	[Active] [bit] NOT NULL,
+	[Duration] [int] NULL,
+	[AddInfo] [text] NULL,
+ CONSTRAINT [PK_Event] PRIMARY KEY CLUSTERED 
+(
+	[EventId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO

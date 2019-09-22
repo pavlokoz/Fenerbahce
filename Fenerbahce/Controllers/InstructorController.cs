@@ -7,62 +7,62 @@ using System.Web.Http;
 
 namespace Fenerbahce.Controllers
 {
-    [Authorize]
-    public class InstructorController : ApiController
-    {
-        private readonly ISearchService searchService;
-        private readonly IInstructorService instructorService;
-        private readonly IMapper<UserEntity, InstructorDTO> instructorMapper;
-        private readonly IMapper<InstructorGroupEntity, GroupInstructorDTO> groupInstructorMapper;
+	[Authorize]
+	public class InstructorController : ApiController
+	{
+		private readonly ISearchService searchService;
+		private readonly IInstructorService instructorService;
+		private readonly IMapper<UserEntity, InstructorDTO> instructorMapper;
+		private readonly IMapper<InstructorGroupEntity, GroupInstructorDTO> groupInstructorMapper;
 
-        public InstructorController(ISearchService searchService,
-            IMapper<UserEntity, InstructorDTO> instructorMapper,
-            IMapper<InstructorGroupEntity, GroupInstructorDTO> groupInstructorMapper,
-            IInstructorService instructorService)
-        {
-            this.searchService = searchService;
-            this.instructorMapper = instructorMapper;
-            this.groupInstructorMapper = groupInstructorMapper;
-            this.instructorService = instructorService;
-        }
+		public InstructorController(ISearchService searchService,
+			IMapper<UserEntity, InstructorDTO> instructorMapper,
+			IMapper<InstructorGroupEntity, GroupInstructorDTO> groupInstructorMapper,
+			IInstructorService instructorService)
+		{
+			this.searchService = searchService;
+			this.instructorMapper = instructorMapper;
+			this.groupInstructorMapper = groupInstructorMapper;
+			this.instructorService = instructorService;
+		}
 
-        [HttpGet]
-        public IHttpActionResult GetInstructors()
-        {
-            var instructors = instructorService.GetInstructors();
-            var instructorsDTO = instructors.Select(instructorMapper.Map).ToList();
-            return Ok(instructorsDTO);
-        }
+		[HttpGet]
+		public IHttpActionResult GetInstructors()
+		{
+			var instructors = instructorService.GetInstructors();
+			var instructorsDTO = instructors.Select(instructorMapper.Map).ToList();
+			return Ok(instructorsDTO);
+		}
 
-        [Authorize(Roles = "Admin")]
-        [HttpPost]
-        public IHttpActionResult AddInstructor([FromBody] GroupInstructorDTO groupInstructor)
-        {
-            var entity = groupInstructorMapper.Map(groupInstructor);
-            instructorService.AddInstructor(entity);
-            return Ok();
-        }
+		[Authorize(Roles = "Admin")]
+		[HttpPost]
+		public IHttpActionResult AddInstructor([FromBody] GroupInstructorDTO groupInstructor)
+		{
+			var entity = groupInstructorMapper.Map(groupInstructor);
+			instructorService.AddInstructor(entity);
+			return Ok();
+		}
 
-        [Authorize(Roles = "Admin")]
-        [HttpDelete]
-        public IHttpActionResult DeleteInstructor([FromUri]int instructorId, [FromUri]long groupId)
-        {
-            var instructorGroup = new InstructorGroupEntity
-            {
-                GroupId = groupId,
-                InstructorId = instructorId
-            };
-            instructorService.DeleteInstructor(instructorGroup);
-            return Ok();
-        }
+		[Authorize(Roles = "Admin")]
+		[HttpDelete]
+		public IHttpActionResult DeleteInstructor([FromUri]int instructorId, [FromUri]long groupId)
+		{
+			var instructorGroup = new InstructorGroupEntity
+			{
+				GroupId = groupId,
+				InstructorId = instructorId
+			};
+			instructorService.DeleteInstructor(instructorGroup);
+			return Ok();
+		}
 
-        [Authorize(Roles = "Admin")]
-        [HttpPut]
-        public IHttpActionResult UpdateInstructor([FromBody]GroupInstructorDTO groupInstructor)
-        {
-            var entity = groupInstructorMapper.Map(groupInstructor);
-            instructorService.Update(entity);
-            return Ok(); 
-        }
-    }
+		[Authorize(Roles = "Admin")]
+		[HttpPut]
+		public IHttpActionResult UpdateInstructor([FromBody]GroupInstructorDTO groupInstructor)
+		{
+			var entity = groupInstructorMapper.Map(groupInstructor);
+			instructorService.Update(entity);
+			return Ok();
+		}
+	}
 }
