@@ -93,6 +93,16 @@ namespace Fenerbahce.Services.Services.Impl
 				return groups;
 			}
 		}
+
+		public IList<GroupEntity> GetBySchoolId(long schoolId)
+		{
+			using (var uow = unitOfWorkFactory.CreateUnitOfWork())
+			{
+				var groups = uow.GroupRepository.Get().Where(x => x.SchoolId == schoolId).ToList();
+				return groups;
+			}
+		}
+
 		public void Update(GroupEntity entity)
 		{
 			using (var uow = unitOfWorkFactory.CreateUnitOfWork())

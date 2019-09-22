@@ -46,6 +46,7 @@
     <Compile Include="Services\IGroupService.cs" />
     <Compile Include="Services\IInstructorService.cs" />
     <Compile Include="Services\Impl\CommentService.cs" />
+    <Compile Include="Services\Impl\EventService.cs" />
     <Compile Include="Services\Impl\GroupService.cs" />
     <Compile Include="Services\Impl\InstructorService.cs" />
     <Compile Include="Services\Impl\NewsService.cs" />

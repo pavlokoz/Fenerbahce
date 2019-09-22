@@ -1,10 +1,6 @@
 ﻿using Fenerbahce.Models.DTOModels.MobileDTO;
 using Fenerbahce.Models.EntityModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fenerbahce.Models.Mappers.Impl
 {

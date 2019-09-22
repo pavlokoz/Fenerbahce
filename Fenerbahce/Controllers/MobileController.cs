@@ -4,13 +4,12 @@ using Fenerbahce.Models.EntityModels;
 using Fenerbahce.Models.Mappers;
 using Fenerbahce.Services.Services;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
 namespace Fenerbahce.Controllers
 {
-    public class MobileController : ApiController
+	public class MobileController : ApiController
     {
         private readonly ISportService sportService;
         private readonly IGroupService groupService;

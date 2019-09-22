@@ -1,10 +1,8 @@
-﻿using Fenerbahce.Controllers;
-using Fenerbahce.DB.Setup;
+﻿using Fenerbahce.DB.Setup;
 using Fenerbahce.Infrastructure.Config;
 using Fenerbahce.Infrastructure.Constants;
 using Fenerbahce.Models.IdentityModels;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Owin;
 using System.Linq;

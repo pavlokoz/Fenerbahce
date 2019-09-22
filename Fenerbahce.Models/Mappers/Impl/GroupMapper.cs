@@ -35,8 +35,8 @@ namespace Fenerbahce.Models.Mappers.Impl
 				GroupName = source.GroupName,
 				SchoolId = source.SchoolId,
 				SportId = source.SportId,
-				SchoolName = source.School.SchoolName,
-				SportName = source.Sport.SportName
+				SchoolName = source.School?.SchoolName,
+				SportName = source.Sport?.SportName
 			};
 		}
 	}

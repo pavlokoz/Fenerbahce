@@ -1,6 +1,5 @@
 ﻿using Fenerbahce.Models.EntityModels;
 using Fenerbahce.UnitOfWork.UnitOfWork;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 

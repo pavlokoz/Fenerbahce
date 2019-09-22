@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Fenerbahce.Models.EntityModels;
+﻿using Fenerbahce.Models.EntityModels;
 using Fenerbahce.UnitOfWork.UnitOfWork;
 
 namespace Fenerbahce.Services.Services.Impl

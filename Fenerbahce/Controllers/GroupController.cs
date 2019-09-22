@@ -2,7 +2,6 @@
 using Fenerbahce.Models.EntityModels;
 using Fenerbahce.Models.Mappers;
 using Fenerbahce.Services.Services;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
@@ -45,6 +44,14 @@ namespace Fenerbahce.Controllers
 			var groupDetailDTO = groupDetailMapper.Map(group);
 
 			return Ok(groupDetailDTO);
+		}
+
+		[HttpGet]
+		public IHttpActionResult GetSchoolGroups([FromUri]long schoolId)
+		{
+			var groups = groupService.GetBySchoolId(schoolId);
+			var groupsDTO = groups.Select(groupMapper.Map).ToList();
+			return Ok(groupsDTO);
 		}
 
 		[HttpGet]

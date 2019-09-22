@@ -3,8 +3,6 @@ using Fenerbahce.UnitOfWork.UnitOfWork;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fenerbahce.Services.Services.Impl
 {
