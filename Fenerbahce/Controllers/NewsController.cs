@@ -43,6 +43,7 @@ namespace Fenerbahce.Controllers
         public IHttpActionResult UpdateNews([FromBody]NewsDTO newsDTO)
         {
             var news = newsMapper.Map(newsDTO);
+            news.AuthorId = this.User.Identity.GetUserId<int>();
             newsService.Update(news);
             return Ok();
         }
